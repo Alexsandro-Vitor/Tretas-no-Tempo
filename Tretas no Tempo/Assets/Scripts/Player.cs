@@ -100,7 +100,7 @@ public class Player : MonoBehaviour {
 	void Morre(){
 		vivo = false;  
 		info.gameObject.SetActive(true);
-		info.text = "Morreu";
+		info.text = "Wasted";
 		Invoke("RecarregaCena", 5);
 		mira.enabled = false;
 		label.gameObject.SetActive(true);
