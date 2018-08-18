@@ -10,6 +10,8 @@ public class Dinossauro : MonoBehaviour {
     [SerializeField]
     Vector3 pos;
 
+    int vidas = 3;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -29,6 +31,11 @@ public class Dinossauro : MonoBehaviour {
             agent.enabled = false;
         }
 	}
+
+    void Dano()
+    {
+
+    }
 
     void OnCollisionEnter(Collision colider)
     {
