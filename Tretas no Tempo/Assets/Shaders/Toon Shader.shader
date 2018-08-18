@@ -71,11 +71,10 @@
                 // sample texture
                 fixed4 col = tex2D(_MainTex, i.uv);
 				// multiply by lighting
-				col *= _LightColor0 * clamp(ceil(nl * _Cuts) / _Cuts, 0, 1) * (1 - _MinLight) + _MinLight;
+				col *= clamp(ceil(nl * _Cuts) / _Cuts, 0, 1) * (1 - _MinLight) + _MinLight;
                 return col;
             }
             ENDCG
         }
-		UsePass "Legacy Shaders/VertexLit/SHADOWCASTER"
     }
 }
