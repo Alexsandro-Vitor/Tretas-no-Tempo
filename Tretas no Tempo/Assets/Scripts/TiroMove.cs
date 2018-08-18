@@ -3,15 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TiroMove : MonoBehaviour {
-	[SerializeField] float speed;
 
-	void Start() {
-		GetComponent<Rigidbody>().velocity = transform.parent.forward * speed;
-	}
+    [SerializeField]
+    float veloc;
+    bool colidiu;
+    Rigidbody rb;
 
-    void OnTriggerEnter(Collider other) {
-        Dinossauro dino = other.GetComponent<Dinossauro>();
-		if (dino != null) dino.Dano();
-		Destroy(gameObject);
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        transform.parent = null;
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if(!colidiu)
+        {
+            transform.Translate(Vector3.forward * veloc * Time.deltaTime);
+            Destroy(gameObject, 1.5f);
+        }
+    }
+
+    void OnCollisionEnter(Collision colider)
+    {
+        colidiu = true;
+        rb.useGravity = true;
     }
 }
