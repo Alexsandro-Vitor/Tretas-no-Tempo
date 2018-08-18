@@ -2359,8 +2359,6 @@ MonoBehaviour:
   gerenciadorV: {fileID: 1797950860}
   tiro: {fileID: 1707186653352662, guid: 6b0bbd87b5885f94cb558a64869f2d71, type: 2}
   vivo: 1
-<<<<<<< HEAD
-=======
 --- !u!1 &1899596374
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,7 +2447,6 @@ RectTransform:
   m_AnchoredPosition: {x: -503, y: -280}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
->>>>>>> b3bf0bed70bed1192fb5e6f819af4984391b114f
 --- !u!1 &1952040602
 GameObject:
   m_ObjectHideFlags: 0
