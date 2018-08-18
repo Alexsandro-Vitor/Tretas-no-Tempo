@@ -34,11 +34,12 @@ public class Dinossauro : MonoBehaviour {
 
     void Dano()
     {
-
+        vidas--;
+        if (vidas <= 0) Destroy(gameObject);
     }
 
     void OnCollisionEnter(Collision colider)
     {
-        if(colider.gameObject.tag == "Tiro") { Destroy(colider.gameObject); Destroy(gameObject); }
+        if(colider.gameObject.tag == "Tiro") { Destroy(colider.gameObject); Dano(); }
     }
 }
