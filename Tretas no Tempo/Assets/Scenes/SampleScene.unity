@@ -1994,6 +1994,7 @@ MonoBehaviour:
   - {fileID: 943483556}
   - {fileID: 1952040602}
   dino: {fileID: 1599660261691086, guid: 2d0e9432cd06bff408e7ef3e8799902f, type: 2}
+  contadorDinos: {fileID: 0}
 --- !u!1 &1585407488
 GameObject:
   m_ObjectHideFlags: 0
