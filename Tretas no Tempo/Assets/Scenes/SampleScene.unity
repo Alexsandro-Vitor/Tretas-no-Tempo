@@ -38,11 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-<<<<<<< HEAD
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
-=======
   m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
->>>>>>> 961a18dbc13a00d2a2ebe2c79be5b8fe03f8e8b7
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -716,11 +712,8 @@ MonoBehaviour:
   veloc: 3
   gerenciadorV: {fileID: 1797950860}
   tiro: {fileID: 1707186653352662, guid: 6b0bbd87b5885f94cb558a64869f2d71, type: 2}
-<<<<<<< HEAD
   tempo: {fileID: 0}
-=======
   cameras: []
->>>>>>> 961a18dbc13a00d2a2ebe2c79be5b8fe03f8e8b7
   vivo: 1
   texto: {fileID: 0}
   aux: 0
@@ -2494,7 +2487,6 @@ Prefab:
       propertyPath: gerenciadorV
       value: 
       objectReference: {fileID: 1797950860}
-<<<<<<< HEAD
     - target: {fileID: 1561248717559046, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
       propertyPath: m_TagString
       value: Player
@@ -2509,7 +2501,6 @@ Prefab:
       propertyPath: texto
       value: 
       objectReference: {fileID: 240578991}
-=======
     - target: {fileID: 20160680698148494, guid: f05c103fcfb1cf742a44f78f0a0b4f7e,
         type: 2}
       propertyPath: far clip plane
@@ -2529,7 +2520,6 @@ Prefab:
       propertyPath: cameras.Array.data[1]
       value: 
       objectReference: {fileID: 2115250828}
->>>>>>> 961a18dbc13a00d2a2ebe2c79be5b8fe03f8e8b7
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
   m_IsPrefabAsset: 0

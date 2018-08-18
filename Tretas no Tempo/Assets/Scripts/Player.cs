@@ -24,13 +24,11 @@ public class Player : MonoBehaviour {
 
     Rigidbody rb;
 
-<<<<<<< HEAD
+
 	public Timer tempo;
-=======
     [SerializeField]
     Camera[] cameras;
 
->>>>>>> 961a18dbc13a00d2a2ebe2c79be5b8fe03f8e8b7
     int vidas = 3;
 
 	public bool vivo = true;
