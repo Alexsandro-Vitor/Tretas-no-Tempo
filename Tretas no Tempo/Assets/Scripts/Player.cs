@@ -5,16 +5,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
-
-
+    
     public static GameObject playerG;
 
 	public Image mira;
 	public Image label;
 
 	public Text info;
-
-
+    
     [SerializeField]
     float veloc;
 
@@ -34,6 +32,11 @@ public class Player : MonoBehaviour {
 
     bool dano;
 
+    Animator anim;
+
+    [SerializeField]
+    Transform origin;
+
     void Awake()
     {
         playerG = gameObject;
@@ -42,6 +45,7 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        anim = GetComponent<Animator>();
         mesh = GetComponent<MeshRenderer>();
         rb = GetComponent<Rigidbody>();
 	}
@@ -50,13 +54,20 @@ public class Player : MonoBehaviour {
 	void FixedUpdate ()
     {
         Movimento();
+        Anim();
 	}
 
     void Update()
     {
-		if (vivo && Input.GetKeyDown(KeyCode.Space)) Instantiate(tiro, transform);
+		if (vivo && Input.GetKeyDown(KeyCode.Space)) Instantiate(tiro, origin);
     }
 
+
+    void Anim()
+    {
+        if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0) anim.SetFloat("Veloc", 1);
+        else anim.SetFloat("Veloc", 0);
+    }
 
     void Movimento()
     {
