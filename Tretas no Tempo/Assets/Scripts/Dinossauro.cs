@@ -25,15 +25,15 @@ public class Dinossauro : MonoBehaviour {
 	
     void Update()
     {
-        if (Vector3.Distance(Player.playerG.transform.position, transform.position) < 1.5f) anim.SetTrigger("Ataque");
+        if (Vector3.Distance(PlayerCharacter.instance.transform.position, transform.position) < 1.5f) anim.SetTrigger("Ataque");
     }
 
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-		if(Player.playerG.GetComponent<Player>().vivo)
+		if(PlayerCharacter.instance.GetComponent<PlayerCharacter>().vivo)
         {
-            pos = Player.playerG.transform.position;
+            pos = PlayerCharacter.instance.transform.position;
             agent.SetDestination(pos);
         }
         else

@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour {
+public class PlayerCharacter : MonoBehaviour {
     
-    public static GameObject playerG;
+    public static PlayerCharacter instance;
 
 	public Image mira;
 	public Image label;
@@ -40,7 +40,7 @@ public class Player : MonoBehaviour {
 
     void Awake()
     {
-        playerG = gameObject;
+        instance = this;
     }
 
 	// Use this for initialization
