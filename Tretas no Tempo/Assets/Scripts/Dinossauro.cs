@@ -23,12 +23,18 @@ public class Dinossauro : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
 	}
 	
+    void Update()
+    {
+        if (Vector3.Distance(PlayerCharacter.instance.transform.position, transform.position) < 1.5f) anim.SetTrigger("Ataque");
+    }
+
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-		if(Player.playerG.GetComponent<Player>().vivo  && agent.enabled)
+		if(PlayerCharacter.instance.vivo  && agent.enabled)
+
         {
-            pos = Player.playerG.transform.position;
+            pos = PlayerCharacter.instance.transform.position;
             agent.SetDestination(pos);
         }
         else
@@ -37,10 +43,13 @@ public class Dinossauro : MonoBehaviour {
         }
 	}
 
-    void Dano()
-    {
+    public void Dano() {
         vidas--;
-        if (vidas <= 0) { agent.enabled = false; anim.SetTrigger("Morreu"); Destroy(gameObject, 1.5f); }
+        if (vidas <= 0) {
+			agent.enabled = false;
+			anim.SetTrigger("Morreu");
+			Destroy(gameObject, 1.5f);
+		}
     }
 
     void OnCollisionEnter(Collision colider)

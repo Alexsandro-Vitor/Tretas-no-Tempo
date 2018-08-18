@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour {
+public class PlayerCharacter : MonoBehaviour {
     
-    public static GameObject playerG;
+    public static PlayerCharacter instance;
 
 	public Image mira;
 	public Image label;
@@ -24,6 +24,8 @@ public class Player : MonoBehaviour {
 
     Rigidbody rb;
 
+    [SerializeField]
+    Camera[] cameras;
 
     int vidas = 3;
 
@@ -38,7 +40,7 @@ public class Player : MonoBehaviour {
 
     void Awake()
     {
-        playerG = gameObject;
+        instance = this;
     }
 
 	// Use this for initialization
@@ -55,8 +57,14 @@ public class Player : MonoBehaviour {
         Anim();
 	}
 
+    void MudarCamera()
+    {
+        cameras[0].enabled = !cameras[0].enabled; cameras[1].enabled = !cameras[1].enabled;
+    }
+
     void Update()
     {
+        if (Input.GetKeyDown("t")) { MudarCamera(); }
 		if (vivo && Input.GetKeyDown(KeyCode.Space)) Instantiate(tiro, origin);
     }
 
