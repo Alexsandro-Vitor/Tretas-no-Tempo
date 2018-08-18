@@ -18,7 +18,7 @@ public class Spawnador : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Player.playerG.GetComponent<Player>().mesh.enabled == false) { CancelInvoke(); }
+        if (!Player.playerG.GetComponent<Player>().vivo ) { CancelInvoke(); }
 
     }
 

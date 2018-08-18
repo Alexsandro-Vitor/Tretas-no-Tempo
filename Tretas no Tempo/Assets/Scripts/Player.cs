@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -9,6 +10,8 @@ public class Player : MonoBehaviour {
 	//public Timer t;
 
     public static GameObject playerG;
+
+	public Text info;
 
     [SerializeField]
     float veloc;
@@ -22,6 +25,8 @@ public class Player : MonoBehaviour {
     Rigidbody rb;
 
     int vidas = 3;
+
+	public bool vivo = true;
 
     bool dano;
 
@@ -45,21 +50,23 @@ public class Player : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown("f")) Instantiate(tiro, transform);
+		if (vivo && Input.GetKeyDown(KeyCode.Space)) Instantiate(tiro, transform);
     }
 
 
     void Movimento()
     {
-        //MovimentaçãoX
-        if (Input.GetAxis("Horizontal") > 0) { transform.Translate(Vector2.right * veloc * Time.deltaTime); }
-        else if (Input.GetAxis("Horizontal") < 0) { transform.Translate(Vector2.left * veloc * Time.deltaTime); }
-        //MovimentaçãoZ
-        if (Input.GetAxis("Vertical") > 0) { transform.Translate(Vector3.forward * veloc * Time.deltaTime); }
-        else if (Input.GetAxis("Vertical") < 0) { transform.Translate(Vector3.back * veloc * Time.deltaTime); }
-        //GirarCamera
-        if (Input.GetKey("right")) { transform.Rotate(Vector2.up * (veloc * 30) * Time.deltaTime); }
-        else if (Input.GetKey("left")) { transform.Rotate(Vector2.down * (veloc * 30) * Time.deltaTime); }
+		if(vivo){
+	        //MovimentaçãoX
+	        if (Input.GetAxis("Horizontal") > 0) { transform.Translate(Vector2.right * veloc * Time.deltaTime); }
+	        else if (Input.GetAxis("Horizontal") < 0) { transform.Translate(Vector2.left * veloc * Time.deltaTime); }
+	        //MovimentaçãoZ
+	        if (Input.GetAxis("Vertical") > 0) { transform.Translate(Vector3.forward * veloc * Time.deltaTime); }
+	        else if (Input.GetAxis("Vertical") < 0) { transform.Translate(Vector3.back * veloc * Time.deltaTime); }
+	        //GirarCamera
+	        if (Input.GetKey("right")) { transform.Rotate(Vector2.up * (veloc * 30) * Time.deltaTime); }
+	        else if (Input.GetKey("left")) { transform.Rotate(Vector2.down * (veloc * 30) * Time.deltaTime); }
+		}
     }
 
     void AtivarDano() { dano = false; }
@@ -71,7 +78,20 @@ public class Player : MonoBehaviour {
             dano = true;
             gerenciadorV.SetarVida(vidas, false);
             vidas--;
-            if (vidas == 0) { mesh.enabled = false; }
+            if (vidas == 0) { 
+				Morre();
+			}
             Invoke("AtivarDano", 1); }
     }
+
+	void Morre(){
+		vivo = false;  
+		info.gameObject.SetActive(true);
+		Invoke("RecarregaCena", 5);
+		mesh.enabled = false;
+	}
+
+	void RecarregaCena(){
+		info.text = "recarrega";
+	}
 }
