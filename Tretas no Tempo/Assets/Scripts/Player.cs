@@ -6,6 +6,8 @@ public class Player : MonoBehaviour {
 
     public MeshRenderer mesh;
 
+	//public Timer t;
+
     public static GameObject playerG;
 
     [SerializeField]
@@ -45,6 +47,7 @@ public class Player : MonoBehaviour {
     {
         if (Input.GetKeyDown("f")) Instantiate(tiro, transform);
     }
+
 
     void Movimento()
     {
