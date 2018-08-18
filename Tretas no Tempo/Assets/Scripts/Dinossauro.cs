@@ -23,6 +23,11 @@ public class Dinossauro : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
 	}
 	
+    void Update()
+    {
+        if (Vector3.Distance(Player.playerG.transform.position, transform.position) < 1.5f) anim.SetTrigger("Ataque");
+    }
+
 	// Update is called once per frame
 	void FixedUpdate ()
     {

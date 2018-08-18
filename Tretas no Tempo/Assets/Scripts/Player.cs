@@ -24,6 +24,8 @@ public class Player : MonoBehaviour {
 
     Rigidbody rb;
 
+    [SerializeField]
+    Camera[] cameras;
 
     int vidas = 3;
 
@@ -55,8 +57,14 @@ public class Player : MonoBehaviour {
         Anim();
 	}
 
+    void MudarCamera()
+    {
+        cameras[0].enabled = !cameras[0].enabled; cameras[1].enabled = !cameras[1].enabled;
+    }
+
     void Update()
     {
+        if (Input.GetKeyDown("t")) { MudarCamera(); }
 		if (vivo && Input.GetKeyDown(KeyCode.Space)) Instantiate(tiro, origin);
     }
 
