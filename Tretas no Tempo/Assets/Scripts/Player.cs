@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PlayerCharacter : MonoBehaviour {
+public class Player : MonoBehaviour {
     
-    public static PlayerCharacter instance;
+    public static GameObject playerG;
 
 	public Image mira;
 	public Image label;
@@ -43,7 +43,7 @@ public class PlayerCharacter : MonoBehaviour {
 
     void Awake()
     {
-        instance = this;
+        playerG = gameObject;
     }
 
 	// Use this for initialization
@@ -77,17 +77,8 @@ public class PlayerCharacter : MonoBehaviour {
 
     void Anim()
     {
-
-
-		if(Input.GetAxis("Vertical") != 0)  anim.SetFloat("Veloc", 1);
-		else anim.SetFloat("Veloc", 0);
-
-		if(Input.GetAxis("Horizontal") != 0) anim.SetFloat("Lateral", 1);
-		else anim.SetFloat("Lateral", 0);
-
-
-
-
+        if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0) anim.SetFloat("Veloc", 1);
+        else anim.SetFloat("Veloc", 0);
 
         if (vidas == 0) anim.SetBool("Morreu", true);
     }
@@ -114,7 +105,6 @@ public class PlayerCharacter : MonoBehaviour {
         if (colider.gameObject.tag == "Inimigo" && !dano)
         {
             dano = true;
-			anim.SetTrigger("Atingido");
             gerenciadorV.SetarVida(vidas, false);
             vidas--;
             if (vidas == 0) { 

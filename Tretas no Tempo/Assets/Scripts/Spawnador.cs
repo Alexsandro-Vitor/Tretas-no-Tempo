@@ -19,7 +19,7 @@ public class Spawnador : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (!PlayerCharacter.instance.vivo ) { CancelInvoke(); }
+        if (!Player.playerG.GetComponent<Player>().vivo ) { CancelInvoke(); }
 
     }
 

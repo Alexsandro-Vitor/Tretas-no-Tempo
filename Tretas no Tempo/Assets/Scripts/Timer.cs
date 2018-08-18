@@ -24,7 +24,7 @@ public class Timer : MonoBehaviour {
 		//Debug.Log ("Minutos:"+minutos+"  Segundos:"+segundos);
 
 		if (minutos <= 0 && segundos <= 0) {
-			PlayerCharacter.instance.vivo = false;
+			Player.playerG.GetComponent<Player>().vivo = false;
 			texto.text = "";
 			if(win!=null)
 				win.gameObject.SetActive(true);

@@ -25,16 +25,15 @@ public class Dinossauro : MonoBehaviour {
 	
     void Update()
     {
-        if (Vector3.Distance(PlayerCharacter.instance.transform.position, transform.position) < 1.5f) anim.SetTrigger("Ataque");
+        if (Vector3.Distance(Player.playerG.transform.position, transform.position) < 1.5f) anim.SetTrigger("Ataque");
     }
 
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-		if(PlayerCharacter.instance.vivo  && agent.enabled)
-
+		if(Player.playerG.GetComponent<Player>().vivo)
         {
-            pos = PlayerCharacter.instance.transform.position;
+            pos = Player.playerG.transform.position;
             agent.SetDestination(pos);
         }
         else
@@ -43,13 +42,10 @@ public class Dinossauro : MonoBehaviour {
         }
 	}
 
-    public void Dano() {
+    void Dano()
+    {
         vidas--;
-        if (vidas <= 0) {
-			agent.enabled = false;
-			anim.SetTrigger("Morreu");
-			Destroy(gameObject, 1.5f);
-		}
+        if (vidas <= 0) { agent.enabled = false; anim.SetTrigger("Morreu"); Destroy(gameObject, 1.5f); }
     }
 
     void OnCollisionEnter(Collision colider)
