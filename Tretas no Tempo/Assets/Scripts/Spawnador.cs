@@ -29,9 +29,12 @@ public class Spawnador : MonoBehaviour {
 
         dino.transform.position = spawns[n-1].transform.position;
 		// Mudar a aceleração se o spawn for o número 2
-		if ((n - 1) == 2 ) 
+		//Debug.Log("Spwan number:"+ (n - 1));
+		if ((n - 1) == 2 || (n - 1) == 0) {
+			dino.gameObject.GetComponent<NavMeshAgent> ().speed = 2.5f;
+		} else 
 		{
-			dino.gameObject.GetComponent<NavMeshAgent> ().speed = 1.0f;
+			dino.gameObject.GetComponent<NavMeshAgent> ().speed = 1.5f;
 		}
         Instantiate(dino);
     }
