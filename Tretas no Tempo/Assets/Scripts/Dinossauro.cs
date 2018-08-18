@@ -42,10 +42,13 @@ public class Dinossauro : MonoBehaviour {
         }
 	}
 
-    void Dano()
-    {
+    public void Dano() {
         vidas--;
-        if (vidas <= 0) { agent.enabled = false; anim.SetTrigger("Morreu"); Destroy(gameObject, 1.5f); }
+        if (vidas <= 0) {
+			agent.enabled = false;
+			anim.SetTrigger("Morreu");
+			Destroy(gameObject, 1.5f);
+		}
     }
 
     void OnCollisionEnter(Collision colider)
