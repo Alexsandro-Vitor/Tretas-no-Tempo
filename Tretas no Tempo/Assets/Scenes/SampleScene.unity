@@ -686,6 +686,7 @@ GameObject:
   - component: {fileID: 414939985}
   - component: {fileID: 414939984}
   - component: {fileID: 414939983}
+  - component: {fileID: 414939989}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -801,6 +802,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &414939989
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 414939982}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d74166f83d787345834811c3a2d71ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &497441127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1880,7 +1899,7 @@ MonoBehaviour:
   - {fileID: 1285944737}
   - {fileID: 943483556}
   - {fileID: 1952040602}
-  dino: {fileID: 1864979773455926, guid: 711381066e705da49b0692f9c38fdb25, type: 2}
+  dino: {fileID: 1599660261691086, guid: 2d0e9432cd06bff408e7ef3e8799902f, type: 2}
 --- !u!1 &1585407488
 GameObject:
   m_ObjectHideFlags: 0

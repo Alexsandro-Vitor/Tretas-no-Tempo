@@ -5,16 +5,21 @@ using UnityEngine.AI;
 
 public class Dinossauro : MonoBehaviour {
 
+    Animator anim;
+
     NavMeshAgent agent;
 
     [SerializeField]
     Vector3 pos;
+
+    bool morreu;
 
     int vidas = 3;
 
 	// Use this for initialization
 	void Start ()
     {
+        anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
 	}
 	
@@ -35,7 +40,7 @@ public class Dinossauro : MonoBehaviour {
     void Dano()
     {
         vidas--;
-        if (vidas <= 0) Destroy(gameObject);
+        if (vidas <= 0) { agent.enabled = false; anim.SetTrigger("Morreu"); Destroy(gameObject, 1.5f); }
     }
 
     void OnCollisionEnter(Collision colider)
