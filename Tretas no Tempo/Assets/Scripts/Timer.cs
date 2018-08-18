@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
-    float minutos = 5, segundos = 0;
+	public float minutos = 0, segundos = 10;
     string zero;
 
     [SerializeField]
@@ -14,11 +14,24 @@ public class Timer : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        segundos -= Time.deltaTime;
-        if (segundos <= 0) { minutos--; segundos = 60; }
+		vitoria ();
+	}
 
-        if (segundos < 10) zero = "0";
-        else zero = null;
-        texto.text = "0" + minutos + ":" + zero + (int)segundos;
+
+	void vitoria(){
+		segundos -= Time.deltaTime;
+		Debug.Log ("Minutos:"+minutos+"  Segundos:"+segundos);
+
+		if (minutos <= 0 && segundos <= 0) {
+			//Player.playerG.GetComponent<Player>().vivo = false;
+			texto.text = "Win!";
+		} else 
+		{
+			if (segundos <= 0) { minutos--; segundos = 60; }
+
+			if (segundos < 10) zero = "0";
+			else zero = null;
+			texto.text = "0" + minutos + ":" + zero + (int)segundos;
+		}
 	}
 }

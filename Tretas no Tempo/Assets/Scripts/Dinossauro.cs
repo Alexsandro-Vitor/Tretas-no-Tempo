@@ -10,6 +10,8 @@ public class Dinossauro : MonoBehaviour {
     [SerializeField]
     Vector3 pos;
 
+    int vidas = 3;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -19,7 +21,7 @@ public class Dinossauro : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        if(Player.playerG.GetComponent<Player>().mesh.enabled)
+		if(Player.playerG.GetComponent<Player>().vivo)
         {
             pos = Player.playerG.transform.position;
             agent.SetDestination(pos);
@@ -29,6 +31,11 @@ public class Dinossauro : MonoBehaviour {
             agent.enabled = false;
         }
 	}
+
+    void Dano()
+    {
+
+    }
 
     void OnCollisionEnter(Collision colider)
     {

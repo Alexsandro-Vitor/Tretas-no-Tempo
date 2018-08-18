@@ -10,12 +10,15 @@ public class GerenciadorVida : MonoBehaviour {
     [SerializeField]
     Color corSombra, corNormal;
     int life = 3;
+    [SerializeField]
+    Animator anim;
 
 	// Use this for initialization
 	void Start ()
     {
-		
-	}
+        life = 3;
+        anim.SetInteger("Vida", life);
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -28,12 +31,6 @@ public class GerenciadorVida : MonoBehaviour {
     {
         if (!aumento) life -= 1;
 
-        if(life != 0 || life == 0 && aumento)
-        {
-            if (vidas == 3) { coracoes[0].color = corNormal; coracoes[1].color = corNormal; coracoes[2].color = corNormal; }
-            else if (vidas == 2) { coracoes[0].color = corSombra; coracoes[1].color = corNormal; coracoes[2].color = corNormal; }
-            else if (vidas == 1) { coracoes[0].color = corSombra; coracoes[1].color = corSombra; coracoes[2].color = corNormal; }
-            else { coracoes[0].color = corSombra; coracoes[1].color = corSombra; coracoes[2].color = corSombra; }
-        }
+        anim.SetInteger("Vida", life);
     }
 }
