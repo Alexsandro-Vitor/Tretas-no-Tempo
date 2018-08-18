@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
-    public MeshRenderer mesh;
-
-	//public Timer t;
 
     public static GameObject playerG;
 
+	public Image mira;
+	public Image label;
+
 	public Text info;
+
 
     [SerializeField]
     float veloc;
@@ -23,6 +25,8 @@ public class Player : MonoBehaviour {
     GameObject tiro;
 
     Rigidbody rb;
+
+	MeshRenderer mesh;
 
     int vidas = 3;
 
@@ -87,11 +91,16 @@ public class Player : MonoBehaviour {
 	void Morre(){
 		vivo = false;  
 		info.gameObject.SetActive(true);
+		info.text = "Morreu";
 		Invoke("RecarregaCena", 5);
 		mesh.enabled = false;
+		mira.enabled = false;
+		label.gameObject.SetActive(true);
+		label.color = Color.red;
 	}
 
 	void RecarregaCena(){
 		info.text = "recarrega";
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }
