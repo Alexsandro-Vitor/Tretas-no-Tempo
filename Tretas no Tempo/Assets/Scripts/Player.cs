@@ -24,7 +24,13 @@ public class Player : MonoBehaviour {
 
     Rigidbody rb;
 
+<<<<<<< HEAD
+	public Timer tempo;
+=======
+    [SerializeField]
+    Camera[] cameras;
 
+>>>>>>> 961a18dbc13a00d2a2ebe2c79be5b8fe03f8e8b7
     int vidas = 3;
 
 	public bool vivo = true;
@@ -32,6 +38,12 @@ public class Player : MonoBehaviour {
     bool dano;
 
     Animator anim;
+
+	public Text texto;
+
+	public int aux;
+	public int contBonus = 0;
+	public int DINO_BONUS = 5; // A cada 10 dinossauros mortos, aparece um bonus de tempo
 
     [SerializeField]
     Transform origin;
@@ -44,6 +56,7 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+		aux = Random.Range(DINO_BONUS,DINO_BONUS+5);
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
 	}
@@ -55,8 +68,14 @@ public class Player : MonoBehaviour {
         Anim();
 	}
 
+    void MudarCamera()
+    {
+        cameras[0].enabled = !cameras[0].enabled; cameras[1].enabled = !cameras[1].enabled;
+    }
+
     void Update()
     {
+        if (Input.GetKeyDown("t")) { MudarCamera(); }
 		if (vivo && Input.GetKeyDown(KeyCode.Space)) Instantiate(tiro, origin);
     }
 
@@ -97,6 +116,14 @@ public class Player : MonoBehaviour {
 				Morre();
 			}
             Invoke("AtivarDano", 1); }
+		
+		if (colider.gameObject.tag == "Bonus")
+		{
+			Destroy (colider.gameObject);
+			tempo.segundos -= 15;
+			tempo.setTextColor ();
+
+		}
     }
 
 	void Morre(){

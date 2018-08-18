@@ -10,6 +10,9 @@ public class Spawnador : MonoBehaviour {
     [SerializeField]
     GameObject dino;
 
+
+
+
 	// Use this for initialization
 	void Start ()
     {
@@ -38,4 +41,6 @@ public class Spawnador : MonoBehaviour {
 		}
         Instantiate(dino);
     }
+
+
 }

@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 195465161507131128}
   - component: {fileID: 114361669552881204}
   - component: {fileID: 54776711446521206}
+  - component: {fileID: 95060636765420356}
   m_Layer: 0
   m_Name: Dino
   m_TagString: Inimigo
@@ -114,6 +115,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95060636765420356
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1864979773455926}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0f8b14a3ef11a694a9139b19d79ffd74, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114361669552881204
 MonoBehaviour:
   m_ObjectHideFlags: 1
