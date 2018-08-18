@@ -10,6 +10,9 @@ public class Spawnador : MonoBehaviour {
     [SerializeField]
     GameObject dino;
 
+
+
+
 	// Use this for initialization
 	void Start ()
     {
@@ -19,7 +22,7 @@ public class Spawnador : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (!PlayerCharacter.instance.vivo ) { CancelInvoke(); }
+        if (!Player.playerG.GetComponent<Player>().vivo ) { CancelInvoke(); }
 
     }
 
@@ -38,4 +41,6 @@ public class Spawnador : MonoBehaviour {
 		}
         Instantiate(dino);
     }
+
+
 }

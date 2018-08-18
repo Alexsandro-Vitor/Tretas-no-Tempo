@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PlayerCharacter : MonoBehaviour {
+public class Player : MonoBehaviour {
     
-    public static PlayerCharacter instance;
+    public static GameObject playerG;
 
 	public Image mira;
 	public Image label;
@@ -24,6 +24,8 @@ public class PlayerCharacter : MonoBehaviour {
 
     Rigidbody rb;
 
+
+	public Timer tempo;
     [SerializeField]
     Camera[] cameras;
 
@@ -35,17 +37,24 @@ public class PlayerCharacter : MonoBehaviour {
 
     Animator anim;
 
+	public Text texto;
+
+	public int aux;
+	public int contBonus = 0;
+	public int DINO_BONUS = 5; // A cada 10 dinossauros mortos, aparece um bonus de tempo
+
     [SerializeField]
     Transform origin;
 
     void Awake()
     {
-        instance = this;
+        playerG = gameObject;
     }
 
 	// Use this for initialization
 	void Start ()
     {
+		aux = Random.Range(DINO_BONUS,DINO_BONUS+5);
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
 	}
@@ -71,17 +80,8 @@ public class PlayerCharacter : MonoBehaviour {
 
     void Anim()
     {
-
-
-		if(Input.GetAxis("Vertical") != 0)  anim.SetFloat("Veloc", 1);
-		else anim.SetFloat("Veloc", 0);
-
-		if(Input.GetAxis("Horizontal") != 0) anim.SetFloat("Lateral", 1);
-		else anim.SetFloat("Lateral", 0);
-
-
-
-
+        if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0) anim.SetFloat("Veloc", 1);
+        else anim.SetFloat("Veloc", 0);
 
         if (vidas == 0) anim.SetBool("Morreu", true);
     }
@@ -108,13 +108,20 @@ public class PlayerCharacter : MonoBehaviour {
         if (colider.gameObject.tag == "Inimigo" && !dano)
         {
             dano = true;
-			anim.SetTrigger("Atingido");
             gerenciadorV.SetarVida(vidas, false);
             vidas--;
             if (vidas == 0) { 
 				Morre();
 			}
             Invoke("AtivarDano", 1); }
+		
+		if (colider.gameObject.tag == "Bonus")
+		{
+			Destroy (colider.gameObject);
+			tempo.segundos -= 15;
+			tempo.setTextColor ();
+
+		}
     }
 
 	void Morre(){

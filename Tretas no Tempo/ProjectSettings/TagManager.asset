@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tiro
   - Inimigo
+  - Bonus
   layers:
   - Default
   - TransparentFX
