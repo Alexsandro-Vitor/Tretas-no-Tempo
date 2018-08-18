@@ -24,7 +24,6 @@ public class Player : MonoBehaviour {
 
     Rigidbody rb;
 
-	MeshRenderer mesh;
 
     int vidas = 3;
 
@@ -46,7 +45,6 @@ public class Player : MonoBehaviour {
 	void Start ()
     {
         anim = GetComponent<Animator>();
-        mesh = GetComponent<MeshRenderer>();
         rb = GetComponent<Rigidbody>();
 	}
 	
@@ -102,16 +100,15 @@ public class Player : MonoBehaviour {
 	void Morre(){
 		vivo = false;  
 		info.gameObject.SetActive(true);
-		info.text = "Morreu";
+		info.text = "Wasted";
 		Invoke("RecarregaCena", 5);
-		mesh.enabled = false;
 		mira.enabled = false;
 		label.gameObject.SetActive(true);
-		label.color = Color.red;
+		label.color = new Color(255,0,0,0.5f);
+
 	}
 
 	void RecarregaCena(){
-		info.text = "recarrega";
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }
