@@ -38,9 +38,6 @@ public class Player : MonoBehaviour {
     [SerializeField]
     Transform origin;
 
-    [SerializeField]
-    Canvas canvas;
-
     void Awake()
     {
         playerG = gameObject;
@@ -63,9 +60,6 @@ public class Player : MonoBehaviour {
     void MudarCamera()
     {
         cameras[0].enabled = !cameras[0].enabled; cameras[1].enabled = !cameras[1].enabled;
-
-        if(cameras[0].enabled) canvas.worldCamera = cameras[0];
-        else canvas.worldCamera = cameras[1];
     }
 
     void Update()
