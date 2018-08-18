@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
-	public float minutos = 0, segundos = 10;
+	public float minutos = 5, segundos = 0;
     string zero;
 
     [SerializeField]

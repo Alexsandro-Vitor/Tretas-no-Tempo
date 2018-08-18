@@ -24,6 +24,9 @@ public class Player : MonoBehaviour {
 
     Rigidbody rb;
 
+    [SerializeField]
+    Animator anim;
+
     int vidas = 3;
 
 	public bool vivo = true;
@@ -52,7 +55,6 @@ public class Player : MonoBehaviour {
     {
 		if (vivo && Input.GetKeyDown(KeyCode.Space)) Instantiate(tiro, transform);
     }
-
 
     void Movimento()
     {

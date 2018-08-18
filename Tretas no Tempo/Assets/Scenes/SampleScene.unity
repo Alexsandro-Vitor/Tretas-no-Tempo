@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -437,9 +437,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a843e1a24e362d54790cb4efa6d57f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minutos: 0
-  segundos: 5
+  minutos: 5
+  segundos: 0
   texto: {fileID: 240578991}
+  win: {fileID: 0}
 --- !u!1 &404856775
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,6 +723,7 @@ MonoBehaviour:
   minutos: 0
   segundos: 5
   texto: {fileID: 497441130}
+  win: {fileID: 0}
 --- !u!114 &497441130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1815,7 +1817,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1500082302}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 662f3f5a383c5434d9b72bc8f6560a5e, type: 3}
   m_Name: 
@@ -2353,7 +2355,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mesh: {fileID: 0}
-  mira: {fileID: 632920370}
   info: {fileID: 865154044}
   veloc: 3
   gerenciadorV: {fileID: 1797950860}
