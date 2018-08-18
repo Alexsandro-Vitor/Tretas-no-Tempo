@@ -63,8 +63,17 @@ public class Player : MonoBehaviour {
 
     void Anim()
     {
-        if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0) anim.SetFloat("Veloc", 1);
-        else anim.SetFloat("Veloc", 0);
+
+
+		if(Input.GetAxis("Vertical") != 0)  anim.SetFloat("Veloc", 1);
+		else anim.SetFloat("Veloc", 0);
+
+		if(Input.GetAxis("Horizontal") != 0) anim.SetFloat("Lateral", 1);
+		else anim.SetFloat("Lateral", 0);
+
+
+
+
 
         if (vidas == 0) anim.SetBool("Morreu", true);
     }
@@ -91,6 +100,7 @@ public class Player : MonoBehaviour {
         if (colider.gameObject.tag == "Inimigo" && !dano)
         {
             dano = true;
+			anim.SetTrigger("Atingido");
             gerenciadorV.SetarVida(vidas, false);
             vidas--;
             if (vidas == 0) { 
