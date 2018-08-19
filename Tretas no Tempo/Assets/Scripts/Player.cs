@@ -56,7 +56,7 @@ public class Player : MonoBehaviour {
 	//Audio
 	public AudioSource gerenciadorDeSom;
 	AudioSource gerenciadorAudioPLayer;
-	public AudioClip tiroSound,andandoSound,bonusSound,audioMorreu;
+	public AudioClip tiroSound,andandoSound,bonusSound,audioMorreu,danoSound;
 	bool correndo;
 
     void Awake()
@@ -160,6 +160,7 @@ public class Player : MonoBehaviour {
             dano = true;
             gerenciadorV.SetarVida(vidas, false);
             vidas--;
+			gerenciadorDeSom.PlayOneShot (danoSound, 1);
             if (vidas == 0) { 
 
 				gerenciadorAudioPLayer.volume = 0.5f;

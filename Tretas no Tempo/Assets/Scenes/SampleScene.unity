@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -625,8 +625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a843e1a24e362d54790cb4efa6d57f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minutos: 0
-  segundos: 5
+  minutos: 3
+  segundos: 0
   texto: {fileID: 240578991}
   spawnador: {fileID: 1500082304}
   spawnHostage: {fileID: 1440422797}
@@ -1293,6 +1293,7 @@ MonoBehaviour:
   andandoSound: {fileID: 0}
   bonusSound: {fileID: 0}
   audioMorreu: {fileID: 0}
+  danoSound: {fileID: 0}
 --- !u!54 &414939984
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4261,11 +4262,15 @@ Prefab:
       propertyPath: audioMorreu
       value: 
       objectReference: {fileID: 8300000, guid: 2298d67829ec96744a2fa8b76fca2b05, type: 3}
+    - target: {fileID: 114607223415514944, guid: 4dcbe43aecb4add46be5762edea0034e,
+        type: 2}
+      propertyPath: danoSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 451d6b7fd7ed3f340bcc2d25006ddaec, type: 3}
     m_RemovedComponents:
     - {fileID: 81069411389448666, guid: 4dcbe43aecb4add46be5762edea0034e, type: 2}
     - {fileID: 81948008042395106, guid: 4dcbe43aecb4add46be5762edea0034e, type: 2}
     - {fileID: 81148265713028320, guid: 4dcbe43aecb4add46be5762edea0034e, type: 2}
-    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dcbe43aecb4add46be5762edea0034e, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &2042480903
