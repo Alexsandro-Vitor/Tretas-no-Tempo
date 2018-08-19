@@ -693,24 +693,6 @@ MonoBehaviour:
   texto: {fileID: 240578991}
   spawnador: {fileID: 1500082304}
   spawnHostage: {fileID: 1440422797}
---- !u!1 &286913778 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1561248717559046, guid: f05c103fcfb1cf742a44f78f0a0b4f7e,
-    type: 2}
-  m_PrefabInternal: {fileID: 2004878471}
---- !u!114 &286913783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 286913778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2a5fe5c2985ab54ebdd90604031f6ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedH: 4
-  speedV: 2
 --- !u!1 &299895653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,6 +1004,7 @@ MonoBehaviour:
   contBonus: 0
   DINO_BONUS: 5
   origin: {fileID: 0}
+  shootDelay: 0.5
 --- !u!54 &414939984
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3336,11 +3319,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114761692515524042, guid: f05c103fcfb1cf742a44f78f0a0b4f7e,
-        type: 2}
-      propertyPath: cameras.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4001123527918714, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
       propertyPath: m_LocalPosition.x
       value: -8.5
@@ -3393,10 +3371,6 @@ Prefab:
       propertyPath: gerenciadorV
       value: 
       objectReference: {fileID: 1797950860}
-    - target: {fileID: 1561248717559046, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 114761692515524042, guid: f05c103fcfb1cf742a44f78f0a0b4f7e,
         type: 2}
       propertyPath: tempo
@@ -3407,64 +3381,6 @@ Prefab:
       propertyPath: texto
       value: 
       objectReference: {fileID: 240578991}
-    - target: {fileID: 20160680698148494, guid: f05c103fcfb1cf742a44f78f0a0b4f7e,
-        type: 2}
-      propertyPath: far clip plane
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4880636531946856, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114761692515524042, guid: f05c103fcfb1cf742a44f78f0a0b4f7e,
-        type: 2}
-      propertyPath: cameras.Array.data[0]
-      value: 
-      objectReference: {fileID: 517946665}
-    - target: {fileID: 114761692515524042, guid: f05c103fcfb1cf742a44f78f0a0b4f7e,
-        type: 2}
-      propertyPath: cameras.Array.data[1]
-      value: 
-      objectReference: {fileID: 2115250828}
-    - target: {fileID: 137180967492151924, guid: f05c103fcfb1cf742a44f78f0a0b4f7e,
-        type: 2}
-      propertyPath: m_DynamicOccludee
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23728726983173488, guid: f05c103fcfb1cf742a44f78f0a0b4f7e,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 538b1eb51edeaff4e988ec8c58231187, type: 2}
-    - target: {fileID: 4880636531946856, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.318
-      objectReference: {fileID: 0}
-    - target: {fileID: 4880636531946856, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.042
-      objectReference: {fileID: 0}
-    - target: {fileID: 4880636531946856, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.343
-      objectReference: {fileID: 0}
-    - target: {fileID: 4330813963797268, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4330813963797268, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4330813963797268, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114761692515524042, guid: f05c103fcfb1cf742a44f78f0a0b4f7e,
-        type: 2}
-      propertyPath: cameraS
-      value: 
-      objectReference: {fileID: 286913783}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
   m_IsPrefabAsset: 0

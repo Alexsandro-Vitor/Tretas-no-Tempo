@@ -15,7 +15,6 @@ public class Bussola : MonoBehaviour {
 			Vector3 vector = hostage.transform.position - player.transform.position;
 			float Z = Vector3.SignedAngle (vector, player.transform.forward, Vector3.up);
 			transform.eulerAngles = new Vector3 (0, 0, Z);
-			Debug.Log ("Z"+ Z);
 		}
 	}
 }
