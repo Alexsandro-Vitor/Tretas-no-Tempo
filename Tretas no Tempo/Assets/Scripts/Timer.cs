@@ -10,9 +10,14 @@ public class Timer : MonoBehaviour {
 
     [SerializeField]
     Text texto;
-	public Image win;
-	float contCor;
 
+	float contCor;
+	[SerializeField]
+	Spawnador spawnador;
+	[SerializeField]
+	SpawnadorHostage spawnHostage;
+
+	bool spawnNo = true;
     
 	// Update is called once per frame
 	void Update ()
@@ -33,10 +38,19 @@ public class Timer : MonoBehaviour {
 		//Debug.Log ("Minutos:"+minutos+"  Segundos:"+segundos);
 
 		if (minutos <= 0 && segundos <= 0) {
+
+			if (spawnNo) {
+				spawnNo = false;
+				spawnador.CancelInvoke ();
+				spawnHostage.SetarHostage ();
+				spawnHostage.enabled = false;
+			}
+			/** Ao matar o Boss
 			Player.playerG.GetComponent<Player>().vivo = false;
 			texto.text = "";
 			if(win!=null)
 				win.gameObject.SetActive(true);
+		*/
 		} else 
 		{
 			if (segundos <= 0) { minutos--; segundos = 60; }
