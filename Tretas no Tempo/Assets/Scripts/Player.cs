@@ -128,15 +128,19 @@ public class Player : MonoBehaviour {
 				Morre();
 			}
             Invoke("AtivarDano", 1); }
-		
-		if (colider.gameObject.tag == "Bonus")
+    }
+
+	void OnTriggerEnter(Collider collider)
+	{
+
+		if (collider.gameObject.tag == "Bonus")
 		{
-			Destroy (colider.gameObject);
+			Destroy (collider.gameObject);
 			tempo.segundos -= 15;
 			tempo.setTextColor ();
 
 		}
-    }
+	}
 
 	void Morre(){
 		vivo = false;  
