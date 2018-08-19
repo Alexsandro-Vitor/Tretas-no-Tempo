@@ -27,6 +27,14 @@ public class Dinossauro : MonoBehaviour {
 
     int vidas = 3;
 
+<<<<<<< HEAD
+=======
+	AudioSource gerenciadorAudioDino;
+	public AudioClip dinoSom2;
+
+
+
+>>>>>>> 8939c4be3c508804f25aa904f5b6805f45bba151
 	//GameObject bonus;// Mudar para o Objeto Bonnus
 
 	Player player;
@@ -34,8 +42,18 @@ public class Dinossauro : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+<<<<<<< HEAD
 		player = Player.playerG.GetComponent<Player>();
         anim = GetComponent<Animator>();
+=======
+		player = FindObjectOfType<Player> ();
+
+		gerenciadorAudioDino = gameObject.GetComponent<AudioSource> ();
+		//gerenciadorAudio.clip = dinoSom1;
+        
+		anim = GetComponent<Animator>();
+
+>>>>>>> 8939c4be3c508804f25aa904f5b6805f45bba151
         agent = GetComponent<NavMeshAgent>();
 		sangue = GetComponent<ParticleSystem>();
         if (tRex) { vidas = 50; agent.speed = 3.5f; }
@@ -43,7 +61,18 @@ public class Dinossauro : MonoBehaviour {
 	
     void Update()
     {
+<<<<<<< HEAD
         if (Vector3.Distance(new Vector3(player.gameObject.transform.position.x, 0, player.gameObject.transform.position.z), new Vector3(transform.position.x, 0, transform.position.z)) < 2.5f) anim.SetTrigger("Ataque");
+=======
+        if (Vector3.Distance(Player.playerG.transform.position, transform.position) < 1.5f) anim.SetTrigger("Ataque");
+
+		if (!gerenciadorAudioDino.isPlaying) {
+			gerenciadorAudioDino.PlayDelayed(5.0f);
+		} else if (!player.vivo) {
+			gerenciadorAudioDino.Stop ();
+		}
+		//gerenciadorAudio.PlayDelayed (5.0f);
+>>>>>>> 8939c4be3c508804f25aa904f5b6805f45bba151
     }
 
 	// Update is called once per frame

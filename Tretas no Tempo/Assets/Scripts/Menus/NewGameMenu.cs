@@ -21,7 +21,7 @@ public class NewGameMenu : MonoBehaviour {
 			dialogues.GetChild(currdialogue).gameObject.SetActive(true);
 		}
 		if (Input.GetKeyDown(KeyCode.RightArrow)) {
-			if (currdialogue == 3) SceneManager.LoadScene("SampleScene");
+			if (currdialogue == dialogues.childCount - 1) SceneManager.LoadScene("SampleScene");
 			dialogues.GetChild(currdialogue).gameObject.SetActive(false);
 			currdialogue++;
 			dialogues.GetChild(currdialogue).gameObject.SetActive(true);

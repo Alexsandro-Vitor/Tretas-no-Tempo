@@ -8,12 +8,19 @@ public class BonusTime : MonoBehaviour {
 	int yRotation =0;
 	int zRotation =0;
 	Timer tempo;
-	void Start () {
-		
+
+	AudioSource gerenciadorAudioBonus;
+	public AudioClip dinoSom2;
+
+	void Start()
+	{
+
+		gerenciadorAudioBonus= gameObject.GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
 		yRotation++;
 		zRotation+=2;
 		transform.eulerAngles = new Vector3(10, yRotation, zRotation);
