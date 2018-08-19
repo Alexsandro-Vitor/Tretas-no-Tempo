@@ -47,9 +47,13 @@ public class Dinossauro : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-		if(Player.playerG.GetComponent<Player>().vivo && agent.enabled)
+		if(Player.playerG.GetComponent<Player>().vivo && agent.enabled  && Player.playerG!=null)
         {
+<<<<<<< HEAD
             agent.enabled = true;
+=======
+			agent.enabled = true;
+>>>>>>> 91e049d0e0197830ba2802d9e7d3f6d6ae6da5a7
             pos = Player.playerG.transform.position;
             agent.SetDestination(pos);
         }
