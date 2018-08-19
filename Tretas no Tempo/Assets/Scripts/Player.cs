@@ -24,6 +24,8 @@ public class Player : MonoBehaviour {
 
     Rigidbody rb;
 
+    [SerializeField]
+    CameraMove cameraS;
 
 	public Timer tempo;
     [SerializeField]
@@ -69,6 +71,7 @@ public class Player : MonoBehaviour {
     void MudarCamera()
     {
         cameras[0].enabled = !cameras[0].enabled; cameras[1].enabled = !cameras[1].enabled;
+        cameraS.enabled = cameras[1];
     }
 
     void Update()
@@ -98,6 +101,9 @@ public class Player : MonoBehaviour {
 	        //GirarCamera
 	        if (Input.GetKey("right")) { transform.Rotate(Vector2.up * (veloc * 30) * Time.deltaTime); }
 	        else if (Input.GetKey("left")) { transform.Rotate(Vector2.down * (veloc * 30) * Time.deltaTime); }
+
+            if (Input.GetKey("e")) veloc = 5;
+            else veloc = 3;
 		}
     }
 

@@ -295,8 +295,9 @@ GameObject:
   - component: {fileID: 169426388}
   - component: {fileID: 169426390}
   - component: {fileID: 169426389}
+  - component: {fileID: 169426391}
   m_Layer: 9
-  m_Name: Main Camera (2)
+  m_Name: CameraMiniMapa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,12 +310,12 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 169426387}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 3.27, z: 0}
-  m_LocalScale: {x: 0.08, y: 0.07999999, z: 0.07999999}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -8.5, y: 13.175, z: 28.2}
+  m_LocalScale: {x: 0.19999999, y: 0.20000008, z: 0.20000008}
   m_Children: []
-  m_Father: {fileID: 819090690}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!81 &169426389
 AudioListener:
@@ -365,6 +366,17 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &169426391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 169426387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f5ca54b24a03242b836e3befdbd704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,6 +602,24 @@ MonoBehaviour:
   segundos: 0
   texto: {fileID: 240578991}
   win: {fileID: 25447421}
+--- !u!1 &286913778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1561248717559046, guid: f05c103fcfb1cf742a44f78f0a0b4f7e,
+    type: 2}
+  m_PrefabInternal: {fileID: 2004878471}
+--- !u!114 &286913783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 286913778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a5fe5c2985ab54ebdd90604031f6ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedH: 2
+  speedV: 2
 --- !u!1 &299895653
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +922,7 @@ MonoBehaviour:
   veloc: 3
   gerenciadorV: {fileID: 1797950860}
   tiro: {fileID: 1707186653352662, guid: 6b0bbd87b5885f94cb558a64869f2d71, type: 2}
+  cameraS: {fileID: 0}
   tempo: {fileID: 0}
   cameras: []
   vivo: 1
@@ -2792,6 +2823,23 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0.343
       objectReference: {fileID: 0}
+    - target: {fileID: 4330813963797268, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330813963797268, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330813963797268, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114761692515524042, guid: f05c103fcfb1cf742a44f78f0a0b4f7e,
+        type: 2}
+      propertyPath: cameraS
+      value: 
+      objectReference: {fileID: 286913783}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f05c103fcfb1cf742a44f78f0a0b4f7e, type: 2}
   m_IsPrefabAsset: 0
@@ -3246,13 +3294,13 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2115250827}
-  m_LocalRotation: {x: 0.17356718, y: 0.030074595, z: -0.0053029615, w: 0.9843485}
+  m_LocalRotation: {x: 0.16073446, y: 0.009904998, z: -0.0016131311, w: 0.9869467}
   m_LocalPosition: {x: -0.15, y: 0.479, z: 0.043}
-  m_LocalScale: {x: 0.080000006, y: 0.07999998, z: 0.07999998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 819090690}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 20, y: 3.5, z: 0}
+  m_LocalEulerAnglesHint: {x: 18.5, y: 1.15, z: 0}
 --- !u!1 &2119209747
 GameObject:
   m_ObjectHideFlags: 0
