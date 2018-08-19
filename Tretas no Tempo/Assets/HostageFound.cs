@@ -8,6 +8,7 @@ public class HostageFound : MonoBehaviour {
 	public Image win;
 	bool subindo;
 	float velocidade = 1.0f ;
+
 	void Update()
 	{
 		if (subindo)

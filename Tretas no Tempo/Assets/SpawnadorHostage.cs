@@ -13,10 +13,16 @@ public class SpawnadorHostage : MonoBehaviour {
 	[SerializeField]
 	Image win;
 
+	[SerializeField]
+	Bussola bussola;
+
 	public void SetarHostage()
 	{
 		int n = Random.Range (1, 5);
 		hostage.transform.position = spawns [n - 1].transform.position;
-		Instantiate (hostage).GetComponent<HostageFound>().win = win;
+		GameObject go = Instantiate (hostage);
+		go.GetComponent<HostageFound>().win = win;
+		bussola.hostage = go;
+		bussola.gameObject.SetActive (true);
 	}
 }
