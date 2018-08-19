@@ -18,7 +18,7 @@ public class SpawnadorHostage : MonoBehaviour {
 
 	public void SetarHostage()
 	{
-		int n = Random.Range (1, 5);
+		int n = Random.Range (1, spawns.Length);
 		hostage.transform.position = spawns [n - 1].transform.position;
 		GameObject go = Instantiate (hostage);
 		go.GetComponent<HostageFound>().win = win;
