@@ -13,6 +13,8 @@ public class Dinossauro : MonoBehaviour {
 
 	ParticleSystem sangue;
 
+    public CapsuleCollider capsule;
+    public SphereCollider sphere;
 
     [SerializeField]
     Vector3 pos;
@@ -20,6 +22,9 @@ public class Dinossauro : MonoBehaviour {
     bool morreu;
 
     int vidas = 3;
+
+	AudioSource gerenciadorAudioDino;
+	public AudioClip dinoSom2;
 
 
 
@@ -33,8 +38,12 @@ public class Dinossauro : MonoBehaviour {
 	void Start ()
     {
 		player = FindObjectOfType<Player> ();
-	
-        anim = GetComponent<Animator>();
+
+		gerenciadorAudioDino = gameObject.GetComponent<AudioSource> ();
+		//gerenciadorAudio.clip = dinoSom1;
+        
+		anim = GetComponent<Animator>();
+
         agent = GetComponent<NavMeshAgent>();
 		sangue = GetComponent<ParticleSystem>();
 	}
@@ -42,6 +51,13 @@ public class Dinossauro : MonoBehaviour {
     void Update()
     {
         if (Vector3.Distance(Player.playerG.transform.position, transform.position) < 1.5f) anim.SetTrigger("Ataque");
+
+		if (!gerenciadorAudioDino.isPlaying) {
+			gerenciadorAudioDino.PlayDelayed(10.0f);
+		} else if (!player.vivo) {
+			gerenciadorAudioDino.Stop ();
+		}
+		//gerenciadorAudio.PlayDelayed (5.0f);
     }
 
 	// Update is called once per frame
@@ -59,15 +75,13 @@ public class Dinossauro : MonoBehaviour {
         }
 	}
 
-	public  void Dano()
+	public void Dano()
     {
 		sangue.Play();
         vidas--;
-        if (vidas <= 0) { agent.enabled = false; anim.SetTrigger("Morreu"); Destroy(gameObject, 1.5f); }
+        if (vidas <= 0) { capsule.enabled = false; sphere.enabled = false; agent.enabled = false; anim.SetTrigger("Morreu"); Destroy(gameObject, 1.5f); }
 		player.contBonus++;
 		contDinos ();
-
-
     }
 	public void contDinos(){
 
@@ -79,6 +93,7 @@ public class Dinossauro : MonoBehaviour {
 			player.aux = Random.Range (player.DINO_BONUS * 3, (player.DINO_BONUS * 2) + 5); // atualiza o índice, para que nos próximos 10 apareça outro timer bonus
 		}
 	}
+
     //void OnCollisionEnter(Collision colider)
     //{
       //  if(colider.gameObject.tag == "Tiro") { Destroy(colider.gameObject); Dano(); }
