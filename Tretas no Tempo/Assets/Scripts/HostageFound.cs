@@ -9,6 +9,8 @@ public class HostageFound : MonoBehaviour {
 	bool subindo;
 	float velocidade = 1.0f ;
 	AudioSource gerenciadorHostage;
+	public AudioClip audioWin;
+
 
 	void Start()
 	{
@@ -32,9 +34,12 @@ public class HostageFound : MonoBehaviour {
 
 		if(collider.CompareTag("Player"))
 		{
+			
 			subindo = true;
 			win.gameObject.SetActive(true);
 			GetComponent<Animator>().SetTrigger("Found");
+			gerenciadorHostage.PlayOneShot (audioWin,1);
+			collider.gameObject.GetComponent<Player> ().gerenciadorDeSom.Stop ();
 		}
 
 	}

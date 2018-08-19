@@ -53,7 +53,7 @@ public class Dinossauro : MonoBehaviour {
         if (Vector3.Distance(Player.playerG.transform.position, transform.position) < 1.5f) anim.SetTrigger("Ataque");
 
 		if (!gerenciadorAudioDino.isPlaying) {
-			gerenciadorAudioDino.PlayDelayed(10.0f);
+			gerenciadorAudioDino.PlayDelayed(5.0f);
 		} else if (!player.vivo) {
 			gerenciadorAudioDino.Stop ();
 		}

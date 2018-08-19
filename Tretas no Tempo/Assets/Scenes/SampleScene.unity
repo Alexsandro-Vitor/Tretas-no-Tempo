@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minutos: 0
-  segundos: 3
+  segundos: 5
   texto: {fileID: 240578991}
   spawnador: {fileID: 1500082304}
   spawnHostage: {fileID: 1440422797}
@@ -1292,6 +1292,7 @@ MonoBehaviour:
   tiroSound: {fileID: 0}
   andandoSound: {fileID: 0}
   bonusSound: {fileID: 0}
+  audioMorreu: {fileID: 0}
 --- !u!54 &414939984
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1658,7 +1659,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 198af4965a9f1d047b9a108d7655c779, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f68a67198b297964faebe6070ba4e139, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4258,13 +4259,26 @@ Prefab:
         type: 2}
       propertyPath: tiroSound
       value: 
-      objectReference: {fileID: 8300000, guid: 2dd1eb95c78b7f54594037beac02e8fb, type: 3}
+      objectReference: {fileID: 8300000, guid: 45931b9431e72e54a892f50a307d8350, type: 3}
     - target: {fileID: 114607223415514944, guid: 4dcbe43aecb4add46be5762edea0034e,
         type: 2}
       propertyPath: andandoSound
       value: 
-      objectReference: {fileID: 8300000, guid: 198af4965a9f1d047b9a108d7655c779, type: 3}
-    m_RemovedComponents: []
+      objectReference: {fileID: 8300000, guid: f68a67198b297964faebe6070ba4e139, type: 3}
+    - target: {fileID: 114607223415514944, guid: 4dcbe43aecb4add46be5762edea0034e,
+        type: 2}
+      propertyPath: bonusSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a8984910d1857047936c0885fe84876, type: 3}
+    - target: {fileID: 114607223415514944, guid: 4dcbe43aecb4add46be5762edea0034e,
+        type: 2}
+      propertyPath: audioMorreu
+      value: 
+      objectReference: {fileID: 8300000, guid: 2298d67829ec96744a2fa8b76fca2b05, type: 3}
+    m_RemovedComponents:
+    - {fileID: 81069411389448666, guid: 4dcbe43aecb4add46be5762edea0034e, type: 2}
+    - {fileID: 81948008042395106, guid: 4dcbe43aecb4add46be5762edea0034e, type: 2}
+    - {fileID: 81148265713028320, guid: 4dcbe43aecb4add46be5762edea0034e, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 4dcbe43aecb4add46be5762edea0034e, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &2042480903
@@ -4681,7 +4695,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2116663848}
   - component: {fileID: 2116663847}
-  - component: {fileID: 2116663846}
   m_Layer: 0
   m_Name: 'SoundManager '
   m_TagString: Untagged
@@ -4689,13 +4702,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &2116663846
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2116663845}
-  m_Enabled: 1
 --- !u!82 &2116663847
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4707,7 +4713,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b764138421c20664cacb7dd5f2035f9b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.76
   m_Pitch: 1
   Loop: 1
   Mute: 0
