@@ -2785,15 +2785,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1769992308737340}
   m_Enabled: 1
-<<<<<<< HEAD
-=======
---- !u!81 &81948008042395106
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1889371801296904}
-  m_Enabled: 1
 --- !u!82 &82195276004551782
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2889,7 +2880,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
->>>>>>> 8939c4be3c508804f25aa904f5b6805f45bba151
 --- !u!95 &95754049254081240
 Animator:
   serializedVersion: 3
@@ -2952,6 +2942,7 @@ MonoBehaviour:
   tiroSound: {fileID: 8300000, guid: 2dd1eb95c78b7f54594037beac02e8fb, type: 3}
   andandoSound: {fileID: 8300000, guid: 198af4965a9f1d047b9a108d7655c779, type: 3}
   bonusSound: {fileID: 0}
+  audioMorreu: {fileID: 0}
 --- !u!114 &114923369078530748
 MonoBehaviour:
   m_ObjectHideFlags: 1

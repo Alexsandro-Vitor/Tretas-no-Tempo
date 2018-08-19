@@ -1626,15 +1626,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 0}
-  bonus: {fileID: 114756632821038276, guid: b6386593e71654b4eba44853ef66214b, type: 2}
+  bonus: {fileID: 0}
   capsule: {fileID: 136791574822898776}
   sphere: {fileID: 135860573323423752}
   pos: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
   tRex: 0
-=======
-  dinoSom2: {fileID: 0}
->>>>>>> 8939c4be3c508804f25aa904f5b6805f45bba151
 --- !u!135 &135860573323423752
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1837,11 +1833,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.32
-<<<<<<< HEAD
   m_Speed: 5
-=======
-  m_Speed: 4.5
->>>>>>> 8939c4be3c508804f25aa904f5b6805f45bba151
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 1000
