@@ -90,14 +90,16 @@ public class Player : MonoBehaviour {
     void Update()
     {
         if (Input.GetKeyDown("t")) { MudarCamera(); }
-		if (vivo && (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && Time.time > lastShoot + shootDelay){
-			Instantiate(tiro, origin);
-			gerenciadorDeSom.PlayOneShot (tiroSound);
-			lastShoot = Time.time;
-			anim.SetBool("Shoot", true);
-		}
-		if(Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0)){
-			anim.SetBool("Shoot", false);
+		if (!PauseMenu.isPaused) {
+			if (vivo && (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && Time.time > lastShoot + shootDelay){
+				Instantiate(tiro, origin);
+				gerenciadorDeSom.PlayOneShot (tiroSound);
+				lastShoot = Time.time;
+				anim.SetBool("Shoot", true);
+			}
+			if(Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0)){
+				anim.SetBool("Shoot", false);
+			}
 		}
     }
 
