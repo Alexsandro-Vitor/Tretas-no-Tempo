@@ -2536,6 +2536,8 @@ MonoBehaviour:
   - {fileID: 1226655042}
   - {fileID: 1918364722}
   dino: {fileID: 1599660261691086, guid: 2d0e9432cd06bff408e7ef3e8799902f, type: 2}
+  dino2: {fileID: 1603233778451156, guid: 7e94764b73b8e7043a6476a766c45b26, type: 2}
+  dinoAtual: {fileID: 0}
   contadorDinos: {fileID: 0}
 --- !u!1 &1562061294
 GameObject:
