@@ -13,7 +13,7 @@ public class Spawnador : MonoBehaviour {
     
 	public Text contadorDinos;
 
-	static int QUANT_MAX_DINOS = 25;
+	static int QUANT_MAX_DINOS = 20;
 
 	// Use this for initialization
 	void Start ()
@@ -50,13 +50,13 @@ public class Spawnador : MonoBehaviour {
                     //Debug.Log("Spwan number:"+ (n - 1));
                     if (especial == 1)
                     {
-                        if(n1 == 1) dinoAtual.gameObject.GetComponent<NavMeshAgent>().speed = 4f;
-                        else dinoAtual.gameObject.GetComponent<NavMeshAgent>().speed = 4.5f;
+                        if(n1 == 1) dinoAtual.gameObject.GetComponent<NavMeshAgent>().speed = 3.5f;
+                        else dinoAtual.gameObject.GetComponent<NavMeshAgent>().speed = 4f;
                     }
                     else
                     {
-                        if(n1 == 1) dinoAtual.gameObject.GetComponent<NavMeshAgent>().speed = 5f;
-                        else dinoAtual.gameObject.GetComponent<NavMeshAgent>().speed = 5.5f;
+                        if(n1 == 1) dinoAtual.gameObject.GetComponent<NavMeshAgent>().speed = 4.5f;
+                        else dinoAtual.gameObject.GetComponent<NavMeshAgent>().speed = 5f;
                     }
                     Instantiate(dinoAtual);
                 }
