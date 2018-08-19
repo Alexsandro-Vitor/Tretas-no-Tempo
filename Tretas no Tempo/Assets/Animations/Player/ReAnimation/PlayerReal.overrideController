@@ -8,9 +8,11 @@ AnimatorOverrideController:
   m_Name: PlayerReal
   m_Controller: {fileID: 9100000, guid: 4d74166f83d787345834811c3a2d71ce, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 963cc4feab6f4ff42a1cafe489d6c1af, type: 2}
-    m_OverrideClip: {fileID: 7400008, guid: 374c435f70a32794ba4b6497800f5b0b, type: 3}
   - m_OriginalClip: {fileID: 7400000, guid: ba8060935b972e8488af63ded56532c0, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 374c435f70a32794ba4b6497800f5b0b, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: fa5b3188d9d98a84c828c16b621af830, type: 2}
+    m_OverrideClip: {fileID: 7400002, guid: 374c435f70a32794ba4b6497800f5b0b, type: 3}
   - m_OriginalClip: {fileID: 7400000, guid: e91827a20fcc85c4ca10669cddade28a, type: 2}
     m_OverrideClip: {fileID: 7400006, guid: 374c435f70a32794ba4b6497800f5b0b, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 963cc4feab6f4ff42a1cafe489d6c1af, type: 2}
+    m_OverrideClip: {fileID: 7400008, guid: 374c435f70a32794ba4b6497800f5b0b, type: 3}
