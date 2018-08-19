@@ -1529,10 +1529,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712bcc723e419ac4dbf58cb52382c9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 0}
   bonus: {fileID: 114756632821038276, guid: b6386593e71654b4eba44853ef66214b, type: 2}
   capsule: {fileID: 136791574822898776}
   sphere: {fileID: 135860573323423752}
   pos: {x: 0, y: 0, z: 0}
+  tRex: 0
 --- !u!135 &135860573323423752
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1735,7 +1737,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.32
-  m_Speed: 5.5
+  m_Speed: 5
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 1000

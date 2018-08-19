@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class Dinossauro : MonoBehaviour {
 
+    public Timer timer;
+
     Animator anim;
 
     NavMeshAgent agent;
@@ -19,30 +21,29 @@ public class Dinossauro : MonoBehaviour {
     [SerializeField]
     Vector3 pos;
 
+    public bool tRex;
+
     bool morreu;
 
     int vidas = 3;
 
-
-
 	//GameObject bonus;// Mudar para o Objeto Bonnus
 
-
 	Player player;
-
 
 	// Use this for initialization
 	void Start ()
     {
-		player = FindObjectOfType<Player> ();
+		player = Player.playerG.GetComponent<Player>();
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
 		sangue = GetComponent<ParticleSystem>();
-	}
+        if (tRex) { vidas = 50; agent.speed = 3.5f; }
+    }
 	
     void Update()
     {
-        if (Vector3.Distance(Player.playerG.transform.position, transform.position) < 1.5f) anim.SetTrigger("Ataque");
+        if (Vector3.Distance(new Vector3(player.gameObject.transform.position.x, 0, player.gameObject.transform.position.z), new Vector3(transform.position.x, 0, transform.position.z)) < 2.5f) anim.SetTrigger("Ataque");
     }
 
 	// Update is called once per frame
@@ -64,8 +65,9 @@ public class Dinossauro : MonoBehaviour {
     {
 		sangue.Play();
         vidas--;
-        if (vidas <= 0) { capsule.enabled = false; sphere.enabled = false; agent.enabled = false; anim.SetTrigger("Morreu"); Destroy(gameObject, 1.5f); }
-		player.contBonus++;
+        if (vidas <= 0 && !tRex) { capsule.enabled = false; sphere.enabled = false; agent.enabled = false; anim.SetTrigger("Morreu"); Destroy(gameObject, 1.5f); }
+        else if(vidas <= 0 && tRex) { GetComponent<BoxCollider>().enabled = false; timer.minutos -= 2; agent.enabled = false; anim.SetTrigger("Morreu"); Destroy(gameObject, 1.5f); }
+        player.contBonus++;
 		contDinos ();
     }
 	public void contDinos(){

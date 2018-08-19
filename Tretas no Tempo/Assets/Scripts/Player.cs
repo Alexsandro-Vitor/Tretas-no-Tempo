@@ -130,7 +130,7 @@ public class Player : MonoBehaviour {
             if (vidas == 0) { 
 				Morre();
 			}
-            Invoke("AtivarDano", 1); 
+            Invoke("AtivarDano", 2); 
 			anim.SetTrigger("Atingido");
 		}
 		
