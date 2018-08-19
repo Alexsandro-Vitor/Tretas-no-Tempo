@@ -48,8 +48,7 @@ public class Player : MonoBehaviour {
     [SerializeField]
     Transform origin;
 
-	public 
-	float shootDelay = 0.2f;
+    public float shootDelay = 0.2f;
 
 	float lastShoot = 0f;
 
@@ -61,7 +60,7 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-		aux = Random.Range(DINO_BONUS,DINO_BONUS+5);
+        aux = Random.Range(DINO_BONUS,DINO_BONUS+5);
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
 	}

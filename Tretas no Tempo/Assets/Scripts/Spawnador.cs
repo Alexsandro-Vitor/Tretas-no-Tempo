@@ -27,30 +27,36 @@ public class Spawnador : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (!Player.playerG.GetComponent<Player>().vivo ) { CancelInvoke(); }
+        if(Player.playerG != null)
+        {
+            if (!Player.playerG.GetComponent<Player>().vivo) { CancelInvoke(); }
+        }
     }
 
     void SetarDinossauro()
 	{
-		if (FindObjectsOfType<Dinossauro> ().Length < QUANT_MAX_DINOS) {
-			int n = Random.Range (1, 17);
-
-            if(Vector3.Distance(Player.playerG.transform.position, spawns[n-1].transform.position) > 15 && Vector3.Distance(Player.playerG.transform.position, spawns[n - 1].transform.position) < 55) 
+        if(Player.playerG != null)
+        {
+            if (FindObjectsOfType<Dinossauro>().Length < QUANT_MAX_DINOS)
             {
-                dino.transform.position = spawns[n - 1].transform.position;
-                // Mudar a aceleração se o spawn for o número 2
-                //Debug.Log("Spwan number:"+ (n - 1));
-                if ((n - 1) == 2 || (n - 1) == 0)
-                {
-                    dino.gameObject.GetComponent<NavMeshAgent>().speed = 2.5f;
-                }
-                else
-                {
-                    dino.gameObject.GetComponent<NavMeshAgent>().speed = 1.5f;
-                }
-                Instantiate(dino);
-            }
-		}
+                int n = Random.Range(1, 17);
 
+                if (Vector3.Distance(Player.playerG.transform.position, spawns[n - 1].transform.position) > 15 && Vector3.Distance(Player.playerG.transform.position, spawns[n - 1].transform.position) < 55)
+                {
+                    dino.transform.position = spawns[n - 1].transform.position;
+                    // Mudar a aceleração se o spawn for o número 2
+                    //Debug.Log("Spwan number:"+ (n - 1));
+                    if ((n - 1) == 2 || (n - 1) == 0)
+                    {
+                        dino.gameObject.GetComponent<NavMeshAgent>().speed = 5f;
+                    }
+                    else
+                    {
+                        dino.gameObject.GetComponent<NavMeshAgent>().speed = 4f;
+                    }
+                    Instantiate(dino);
+                }
+            }
+        }
 	}
 }
