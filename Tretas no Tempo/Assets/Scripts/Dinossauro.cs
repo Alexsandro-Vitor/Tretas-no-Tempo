@@ -59,7 +59,7 @@ public class Dinossauro : MonoBehaviour {
         }
 	}
 
-	public  void Dano()
+	public void Dano()
     {
 		sangue.Play();
         vidas--;
@@ -79,6 +79,7 @@ public class Dinossauro : MonoBehaviour {
 			player.aux = Random.Range (player.DINO_BONUS * 3, (player.DINO_BONUS * 2) + 5); // atualiza o índice, para que nos próximos 10 apareça outro timer bonus
 		}
 	}
+
     //void OnCollisionEnter(Collision colider)
     //{
       //  if(colider.gameObject.tag == "Tiro") { Destroy(colider.gameObject); Dano(); }
