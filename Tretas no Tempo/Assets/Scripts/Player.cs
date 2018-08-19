@@ -94,7 +94,14 @@ public class Player : MonoBehaviour {
 			Instantiate(tiro, origin);
 			gerenciadorDeSom.PlayOneShot (tiroSound);
 			lastShoot = Time.time;
+<<<<<<< HEAD
 
+=======
+			anim.SetBool("Shoot", true);
+		}
+		if(Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0)){
+			anim.SetBool("Shoot", false);
+>>>>>>> 79cc445d30d3f05f76ac149a5f104114e0cde537
 		}
     }
 
@@ -143,7 +150,7 @@ public class Player : MonoBehaviour {
 			if (Input.GetKey("right")) { transform.Rotate(Vector2.up * (veloc * 30) * Time.deltaTime); }
 			else if (Input.GetKey("left")) { transform.Rotate(Vector2.down * (veloc * 30) * Time.deltaTime); }
 
-            if (Input.GetKey("e")) veloc = 5;
+            if (Input.GetKey(KeyCode.LeftShift)) veloc = 5;
             else veloc = 3;
 		}
     }
