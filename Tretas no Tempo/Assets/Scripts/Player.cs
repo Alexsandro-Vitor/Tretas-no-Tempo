@@ -113,7 +113,7 @@ public class Player : MonoBehaviour {
 	        if (Input.GetKey("right")) { transform.Rotate(Vector2.up * (veloc * 30) * Time.deltaTime); }
 	        else if (Input.GetKey("left")) { transform.Rotate(Vector2.down * (veloc * 30) * Time.deltaTime); }
 
-            if (Input.GetKey("e")) veloc = 5;
+            if (Input.GetKey(KeyCode.LeftShift)) veloc = 5;
             else veloc = 3;
 		}
     }
