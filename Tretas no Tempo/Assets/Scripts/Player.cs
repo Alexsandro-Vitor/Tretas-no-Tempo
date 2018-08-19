@@ -84,6 +84,10 @@ public class Player : MonoBehaviour {
 		if (vivo && (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && Time.time > lastShoot + shootDelay){
 			Instantiate(tiro, origin);
 			lastShoot = Time.time;
+			anim.SetBool("Shoot", true);
+		}
+		if(Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0)){
+			anim.SetBool("Shoot", false);
 		}
     }
 
@@ -126,7 +130,9 @@ public class Player : MonoBehaviour {
             if (vidas == 0) { 
 				Morre();
 			}
-            Invoke("AtivarDano", 1); }
+            Invoke("AtivarDano", 1); 
+			anim.SetTrigger("Atingido");
+		}
 		
     }
 

@@ -13,6 +13,8 @@ public class Dinossauro : MonoBehaviour {
 
 	ParticleSystem sangue;
 
+    public CapsuleCollider capsule;
+    public SphereCollider sphere;
 
     [SerializeField]
     Vector3 pos;
@@ -33,7 +35,6 @@ public class Dinossauro : MonoBehaviour {
 	void Start ()
     {
 		player = FindObjectOfType<Player> ();
-	
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
 		sangue = GetComponent<ParticleSystem>();
@@ -63,11 +64,9 @@ public class Dinossauro : MonoBehaviour {
     {
 		sangue.Play();
         vidas--;
-        if (vidas <= 0) { agent.enabled = false; anim.SetTrigger("Morreu"); Destroy(gameObject, 1.5f); }
+        if (vidas <= 0) { capsule.enabled = false; sphere.enabled = false; agent.enabled = false; anim.SetTrigger("Morreu"); Destroy(gameObject, 1.5f); }
 		player.contBonus++;
 		contDinos ();
-
-
     }
 	public void contDinos(){
 
