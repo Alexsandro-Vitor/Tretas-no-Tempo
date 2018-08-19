@@ -9,14 +9,11 @@ public class Spawnador : MonoBehaviour {
     [SerializeField]
     GameObject[] spawns;
     [SerializeField]
-    GameObject dino;
-
-
+    GameObject dino, dino2, dinoAtual;
+    
 	public Text contadorDinos;
 
 	static int QUANT_MAX_DINOS = 25;
-
-
 
 	// Use this for initialization
 	void Start ()
@@ -39,6 +36,10 @@ public class Spawnador : MonoBehaviour {
         {
             if (FindObjectsOfType<Dinossauro>().Length < QUANT_MAX_DINOS)
             {
+                int n1 = Random.Range(1, 3);
+                if (n1 == 1) dinoAtual = dino;
+                else dinoAtual = dino2;
+                    
                 int n = Random.Range(1, 17);
 
                 if (Vector3.Distance(Player.playerG.transform.position, spawns[n - 1].transform.position) > 15 && Vector3.Distance(Player.playerG.transform.position, spawns[n - 1].transform.position) < 55)
@@ -48,13 +49,15 @@ public class Spawnador : MonoBehaviour {
                     //Debug.Log("Spwan number:"+ (n - 1));
                     if ((n - 1) == 2 || (n - 1) == 0)
                     {
-                        dino.gameObject.GetComponent<NavMeshAgent>().speed = 5f;
+                        if(n1 == 1) dinoAtual.gameObject.GetComponent<NavMeshAgent>().speed = 5f;
+                        else dinoAtual.gameObject.GetComponent<NavMeshAgent>().speed = 6f;
                     }
                     else
                     {
-                        dino.gameObject.GetComponent<NavMeshAgent>().speed = 4f;
+                        if(n1 == 1) dinoAtual.gameObject.GetComponent<NavMeshAgent>().speed = 4f;
+                        else dinoAtual.gameObject.GetComponent<NavMeshAgent>().speed = 5f;
                     }
-                    Instantiate(dino);
+                    Instantiate(dinoAtual);
                 }
             }
         }

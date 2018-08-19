@@ -8,6 +8,7 @@ public class TiroMove : MonoBehaviour {
     float veloc;
     bool colidiu;
     Rigidbody rb;
+    public GameObject explosion;
 
     void Start()
     {
@@ -23,6 +24,12 @@ public class TiroMove : MonoBehaviour {
             transform.Translate(Vector3.forward * veloc * Time.deltaTime);
             Destroy(gameObject, 1.5f);
         }
+    }
+
+    void OnCollisionEnter(Collision colider)
+    {
+        GameObject support = Instantiate(explosion, transform);
+        support.transform.parent = null;
     }
 
     void OnTriggerEnter(Collider collider)
