@@ -48,6 +48,11 @@ public class Player : MonoBehaviour {
     [SerializeField]
     Transform origin;
 
+	public 
+	float shootDelay = 0.2f;
+
+	float lastShoot = 0f;
+
     void Awake()
     {
         playerG = gameObject;
@@ -77,7 +82,10 @@ public class Player : MonoBehaviour {
     void Update()
     {
         if (Input.GetKeyDown("t")) { MudarCamera(); }
-		if (vivo && Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0)) Instantiate(tiro, origin);
+		if (vivo && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0)) && Time.time > lastShoot + shootDelay){
+			Instantiate(tiro, origin);
+			lastShoot = Time.time;
+		}
     }
 
 
