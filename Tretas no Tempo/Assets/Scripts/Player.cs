@@ -82,7 +82,7 @@ public class Player : MonoBehaviour {
     void Update()
     {
         if (Input.GetKeyDown("t")) { MudarCamera(); }
-		if (vivo && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0)) && Time.time > lastShoot + shootDelay){
+		if (vivo && (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && Time.time > lastShoot + shootDelay){
 			Instantiate(tiro, origin);
 			lastShoot = Time.time;
 		}

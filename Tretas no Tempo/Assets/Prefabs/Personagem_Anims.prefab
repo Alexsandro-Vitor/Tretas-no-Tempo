@@ -2709,7 +2709,7 @@ MonoBehaviour:
   contBonus: 0
   DINO_BONUS: 5
   origin: {fileID: 4880636531946856}
-  shootDelay: 0.02
+  shootDelay: 0.2
 --- !u!114 &114977235377463446
 MonoBehaviour:
   m_ObjectHideFlags: 1
