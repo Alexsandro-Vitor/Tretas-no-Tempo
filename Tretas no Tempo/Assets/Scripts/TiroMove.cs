@@ -25,8 +25,13 @@ public class TiroMove : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter(Collision colider)
+    void OnTriggerEnter(Collider collider)
     {
+		Dinossauro dino = collider.GetComponent<Dinossauro> ();
+		if (dino != null) {
+			dino.Dano ();
+		}
+		Destroy (gameObject);
         colidiu = true;
         rb.useGravity = true;
     }

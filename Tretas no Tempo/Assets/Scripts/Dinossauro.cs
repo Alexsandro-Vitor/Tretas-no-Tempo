@@ -55,7 +55,7 @@ public class Dinossauro : MonoBehaviour {
         }
 	}
 
-    void Dano()
+	public  void Dano()
     {
         vidas--;
         if (vidas <= 0) { agent.enabled = false; anim.SetTrigger("Morreu"); Destroy(gameObject, 1.5f); }
@@ -74,8 +74,8 @@ public class Dinossauro : MonoBehaviour {
 			player.aux = Random.Range (player.DINO_BONUS * 3, (player.DINO_BONUS * 2) + 5); // atualiza o índice, para que nos próximos 10 apareça outro timer bonus
 		}
 	}
-    void OnCollisionEnter(Collision colider)
-    {
-        if(colider.gameObject.tag == "Tiro") { Destroy(colider.gameObject); Dano(); }
-    }
+    //void OnCollisionEnter(Collision colider)
+    //{
+      //  if(colider.gameObject.tag == "Tiro") { Destroy(colider.gameObject); Dano(); }
+    //}
 }

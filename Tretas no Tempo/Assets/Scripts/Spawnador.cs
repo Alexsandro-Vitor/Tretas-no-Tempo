@@ -31,6 +31,7 @@ public class Spawnador : MonoBehaviour {
     {
         if (!Player.playerG.GetComponent<Player>().vivo ) { CancelInvoke(); }
 
+
     }
 
     void SetarDinossauro()
