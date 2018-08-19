@@ -8,8 +8,14 @@ public class HostageFound : MonoBehaviour {
 	public Image win;
 	bool subindo;
 	float velocidade = 1.0f ;
+	AudioSource gerenciadorHostage;
 
+	void Start()
+	{
+		gerenciadorHostage = gameObject.GetComponent<AudioSource> ();
+		gerenciadorHostage.Play ();
 
+	}
 
 	void Update()
 	{
