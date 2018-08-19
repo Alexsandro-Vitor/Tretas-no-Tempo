@@ -18,7 +18,7 @@ public class Spawnador : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-		InvokeRepeating ("SetarDinossauro", 5, 1);
+		InvokeRepeating ("SetarDinossauro", 5, 1.5f);
 	}
 	
 	// Update is called once per frame
