@@ -126,7 +126,9 @@ public class Player : MonoBehaviour {
             if (vidas == 0) { 
 				Morre();
 			}
-            Invoke("AtivarDano", 1); }
+            Invoke("AtivarDano", 1); 
+			anim.SetTrigger("Atingido");
+		}
 		
     }
 
