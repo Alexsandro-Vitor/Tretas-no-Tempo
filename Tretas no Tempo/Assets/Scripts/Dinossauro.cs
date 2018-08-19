@@ -23,6 +23,9 @@ public class Dinossauro : MonoBehaviour {
 
     int vidas = 3;
 
+	AudioSource gerenciadorAudioDino;
+	public AudioClip dinoSom2;
+
 
 
 	//GameObject bonus;// Mudar para o Objeto Bonnus
@@ -35,7 +38,12 @@ public class Dinossauro : MonoBehaviour {
 	void Start ()
     {
 		player = FindObjectOfType<Player> ();
-        anim = GetComponent<Animator>();
+
+		gerenciadorAudioDino = gameObject.GetComponent<AudioSource> ();
+		//gerenciadorAudio.clip = dinoSom1;
+        
+		anim = GetComponent<Animator>();
+
         agent = GetComponent<NavMeshAgent>();
 		sangue = GetComponent<ParticleSystem>();
 	}
@@ -43,6 +51,13 @@ public class Dinossauro : MonoBehaviour {
     void Update()
     {
         if (Vector3.Distance(Player.playerG.transform.position, transform.position) < 1.5f) anim.SetTrigger("Ataque");
+
+		if (!gerenciadorAudioDino.isPlaying) {
+			gerenciadorAudioDino.PlayDelayed(10.0f);
+		} else if (!player.vivo) {
+			gerenciadorAudioDino.Stop ();
+		}
+		//gerenciadorAudio.PlayDelayed (5.0f);
     }
 
 	// Update is called once per frame
