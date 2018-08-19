@@ -9,6 +9,8 @@ public class HostageFound : MonoBehaviour {
 	bool subindo;
 	float velocidade = 1.0f ;
 
+
+
 	void Update()
 	{
 		if (subindo)
@@ -25,8 +27,8 @@ public class HostageFound : MonoBehaviour {
 		if(collider.CompareTag("Player"))
 		{
 			subindo = true;
-			Debug.Log ("Entrou no Trigger");
 			win.gameObject.SetActive(true);
+			GetComponent<Animator>().SetTrigger("Found");
 		}
 
 	}
