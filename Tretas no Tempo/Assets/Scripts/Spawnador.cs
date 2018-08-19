@@ -14,7 +14,7 @@ public class Spawnador : MonoBehaviour {
 
 	public Text contadorDinos;
 
-	static int  QUANT_MAX_DINOS = 5;
+	static int QUANT_MAX_DINOS = 25;
 
 
 
@@ -28,26 +28,28 @@ public class Spawnador : MonoBehaviour {
 	void Update ()
     {
         if (!Player.playerG.GetComponent<Player>().vivo ) { CancelInvoke(); }
-
-
     }
 
     void SetarDinossauro()
 	{
-
-
 		if (FindObjectsOfType<Dinossauro> ().Length < QUANT_MAX_DINOS) {
-			int n = Random.Range (1, 5);
+			int n = Random.Range (1, 17);
 
-			dino.transform.position = spawns [n - 1].transform.position;
-			// Mudar a aceleração se o spawn for o número 2
-			//Debug.Log("Spwan number:"+ (n - 1));
-			if ((n - 1) == 2 || (n - 1) == 0) {
-				dino.gameObject.GetComponent<NavMeshAgent> ().speed = 2.5f;
-			} else {
-				dino.gameObject.GetComponent<NavMeshAgent> ().speed = 1.5f;
-			}
-			Instantiate (dino);
+            if(Vector3.Distance(Player.playerG.transform.position, spawns[n-1].transform.position) > 15 && Vector3.Distance(Player.playerG.transform.position, spawns[n - 1].transform.position) < 55) 
+            {
+                dino.transform.position = spawns[n - 1].transform.position;
+                // Mudar a aceleração se o spawn for o número 2
+                //Debug.Log("Spwan number:"+ (n - 1));
+                if ((n - 1) == 2 || (n - 1) == 0)
+                {
+                    dino.gameObject.GetComponent<NavMeshAgent>().speed = 2.5f;
+                }
+                else
+                {
+                    dino.gameObject.GetComponent<NavMeshAgent>().speed = 1.5f;
+                }
+                Instantiate(dino);
+            }
 		}
 
 	}
