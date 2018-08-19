@@ -94,7 +94,7 @@ public class Player : MonoBehaviour {
 
     void Anim()
     {
-        if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0) anim.SetFloat("Veloc", 1);
+        if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0) anim.SetFloat("Veloc", 1);
         else anim.SetFloat("Veloc", 0);
 
         if (vidas == 0) anim.SetBool("Morreu", true);
