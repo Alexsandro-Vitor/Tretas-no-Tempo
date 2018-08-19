@@ -1512,7 +1512,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 25d251e98b4e204459f64de37d140842, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.62
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1521,7 +1521,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1625,11 +1625,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712bcc723e419ac4dbf58cb52382c9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 0}
   bonus: {fileID: 114756632821038276, guid: b6386593e71654b4eba44853ef66214b, type: 2}
   capsule: {fileID: 136791574822898776}
   sphere: {fileID: 135860573323423752}
   pos: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+  tRex: 0
+=======
   dinoSom2: {fileID: 0}
+>>>>>>> 8939c4be3c508804f25aa904f5b6805f45bba151
 --- !u!135 &135860573323423752
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1832,7 +1837,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.32
-  m_Speed: 5.5
+<<<<<<< HEAD
+  m_Speed: 5
+=======
+  m_Speed: 4.5
+>>>>>>> 8939c4be3c508804f25aa904f5b6805f45bba151
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 1000

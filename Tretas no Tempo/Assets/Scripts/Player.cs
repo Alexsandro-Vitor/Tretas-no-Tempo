@@ -56,7 +56,7 @@ public class Player : MonoBehaviour {
 	//Audio
 	public AudioSource gerenciadorDeSom;
 	AudioSource gerenciadorAudioPLayer;
-	public AudioClip tiroSound,andandoSound,bonusSound;
+	public AudioClip tiroSound,andandoSound,bonusSound,audioMorreu;
 	bool correndo;
 
     void Awake()
@@ -163,9 +163,15 @@ public class Player : MonoBehaviour {
             gerenciadorV.SetarVida(vidas, false);
             vidas--;
             if (vidas == 0) { 
+
+				gerenciadorAudioPLayer.volume = 0.5f;
+				gerenciadorDeSom.priority = 1;
+				gerenciadorDeSom.PlayOneShot(audioMorreu,1);
+				//gerenciadorDeSom.Play ();
+
 				Morre();
 			}
-            Invoke("AtivarDano", 1); 
+            Invoke("AtivarDano", 2); 
 			anim.SetTrigger("Atingido");
 		}
 		
@@ -190,6 +196,7 @@ public class Player : MonoBehaviour {
 		mira.enabled = false;
 		label.gameObject.SetActive(true);
 		label.color = new Color(255,0,0,0.5f);
+
 		gerenciadorAudioPLayer.Stop ();
 
 	}
