@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	void NewGame() {
-		SceneManager.LoadScene("SampleScene");
+		SceneManager.LoadScene("NewGameScene");
 	}
 
 	void Options() {
