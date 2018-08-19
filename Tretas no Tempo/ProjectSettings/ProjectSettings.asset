@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: 0a2e3e64f5a1bf54b8a404f0c7cb2fd1
+  productGUID: a3ff2fd61e1f060448aa6e2c60e8f110
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: TretosaCompany
+  companyName: DefaultCompany
   productName: Tretas no Tempo
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}

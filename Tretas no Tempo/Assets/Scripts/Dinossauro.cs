@@ -11,6 +11,8 @@ public class Dinossauro : MonoBehaviour {
 
 	public BonusTime bonus;
 
+	ParticleSystem sangue;
+
 
     [SerializeField]
     Vector3 pos;
@@ -34,6 +36,7 @@ public class Dinossauro : MonoBehaviour {
 	
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+		sangue = GetComponent<ParticleSystem>();
 	}
 	
     void Update()
@@ -57,6 +60,7 @@ public class Dinossauro : MonoBehaviour {
 
 	public  void Dano()
     {
+		sangue.Play();
         vidas--;
         if (vidas <= 0) { agent.enabled = false; anim.SetTrigger("Morreu"); Destroy(gameObject, 1.5f); }
 		player.contBonus++;
