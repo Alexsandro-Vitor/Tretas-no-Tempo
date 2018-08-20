@@ -9,14 +9,6 @@ public class BonusTime : MonoBehaviour {
 	int zRotation =0;
 	Timer tempo;
 
-	AudioSource gerenciadorAudioBonus;
-	public AudioClip dinoSom2;
-
-	void Start()
-	{
-
-		gerenciadorAudioBonus= gameObject.GetComponent<AudioSource> ();
-	}
 	
 	// Update is called once per frame
 	void Update () {
