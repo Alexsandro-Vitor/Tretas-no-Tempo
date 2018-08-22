@@ -2920,7 +2920,7 @@ MonoBehaviour:
   aux: 0
   contBonus: 0
   DINO_BONUS: 5
-  origin: {fileID: 4987765154217950}
+  bulletOrigin: {fileID: 4987765154217950}
   shootDelay: 0.2
   gerenciadorDeSom: {fileID: 0}
   tiroSound: {fileID: 8300000, guid: 45931b9431e72e54a892f50a307d8350, type: 3}

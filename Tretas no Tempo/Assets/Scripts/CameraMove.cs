@@ -10,16 +10,14 @@ public class CameraMove : MonoBehaviour {
     private float yaw = 0.0f;
     private float pitch = 0.0f;
 
-    void Start()
-    {
+    void Start() {
         Cursor.visible = false;
     }
 
-    void Update()
-    {
+    void Update() {
         yaw += speedH * Input.GetAxis("Mouse X");
         pitch -= speedV * Input.GetAxis("Mouse Y");
 
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+        transform.eulerAngles = new Vector3(Mathf.Clamp(pitch, -80f, 80f), yaw, 0.0f);
     }
 }

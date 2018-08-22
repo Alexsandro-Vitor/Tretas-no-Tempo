@@ -13,23 +13,18 @@ public class Player : MonoBehaviour {
 
 	public Text info;
     
-    [SerializeField]
-    float veloc;
+    [SerializeField] float veloc;
 
-    [SerializeField]
-    GerenciadorVida gerenciadorV;
+    [SerializeField] GerenciadorVida gerenciadorV;
 
-    [SerializeField]
-    GameObject tiro;
+    [SerializeField] GameObject tiro;
 
     Rigidbody rb;
 
-    [SerializeField]
-    CameraMove cameraS;
+    [SerializeField] CameraMove cameraS;
 
 	public Timer tempo;
-    [SerializeField]
-    Camera[] cameras;
+    [SerializeField] Camera[] cameras;
 
     int vidas = 3;
 
@@ -45,29 +40,25 @@ public class Player : MonoBehaviour {
 	public int contBonus = 0;
 	public int DINO_BONUS = 5; // A cada 10 dinossauros mortos, aparece um bonus de tempo
 
-    [SerializeField]
-    Transform origin;
+    [Tooltip("De onde sai o tiro")][SerializeField] Transform bulletOrigin;
 
     public float shootDelay = 0.2f;
 
 	float lastShoot = 0f;
 
-
 	//Audio
+	[Header("Audio")]
 	public AudioSource gerenciadorDeSom;
 	AudioSource gerenciadorAudioPLayer;
-	public AudioClip tiroSound,andandoSound,bonusSound,audioMorreu,danoSound;
+	public AudioClip tiroSound, andandoSound, bonusSound, audioMorreu, danoSound;
 	bool correndo;
 
-    void Awake()
-    {
+    void Awake() {
         playerG = gameObject;
-
     }
 
 	// Use this for initialization
-	void Start ()
-    {
+	void Start () {
 		gerenciadorAudioPLayer = gameObject.GetComponent<AudioSource> ();
         aux = Random.Range(DINO_BONUS,DINO_BONUS+5);
         anim = GetComponent<Animator>();
@@ -75,46 +66,40 @@ public class Player : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate ()
-    {
+	void FixedUpdate () {
         Movimento();
         Anim();
 	}
 
-    void MudarCamera()
-    {
-        cameras[0].enabled = !cameras[0].enabled; cameras[1].enabled = !cameras[1].enabled;
-        cameraS.enabled = cameras[1];
+    void MudarCamera() {
+        cameras[0].enabled = !cameras[0].enabled;
+		cameras[1].enabled = !cameras[1].enabled;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown("t")) { MudarCamera(); }
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.T)) MudarCamera();
 		if (!PauseMenu.isPaused) {
-			if (vivo && (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && Time.time > lastShoot + shootDelay){
-				Instantiate(tiro, origin);
+			if (vivo && (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && Time.time > lastShoot + shootDelay) {
+				Instantiate(tiro, bulletOrigin);
 				gerenciadorDeSom.PlayOneShot (tiroSound);
 				lastShoot = Time.time;
-				anim.SetBool("Shoot", true);
+				//anim.SetBool("Shoot", true);
 			}
-			if(Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0)){
-				anim.SetBool("Shoot", false);
+			if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0)) {
+				//anim.SetBool("Shoot", false);
 			}
 		}
     }
 
-
-    void Anim()
-    {
+    void Anim() {
         if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0) anim.SetFloat("Veloc", 1);
         else anim.SetFloat("Veloc", 0);
 
         if (vidas == 0) anim.SetBool("Morreu", true);
     }
 
-    void Movimento()
-    {
-		if(vivo){
+    void Movimento() {
+		if (vivo) {
 	        //MovimentaçãoX
 			if (Input.GetAxis ("Horizontal") > 0) {
 				transform.Translate (Vector2.right * veloc * Time.deltaTime);
@@ -128,25 +113,26 @@ public class Player : MonoBehaviour {
 				}
 			} 
 	        //MovimentaçãoZ
-			else if (Input.GetAxis("Vertical") > 0) { transform.Translate(Vector3.forward * veloc * Time.deltaTime);
+			else if (Input.GetAxis("Vertical") > 0) {
+				transform.Translate(Vector3.forward * veloc * Time.deltaTime);
 				if (!gerenciadorAudioPLayer.isPlaying) {
 					gerenciadorAudioPLayer.Play ();
 				}
 			}
 			else if (Input.GetAxis("Vertical") < 0) {
-			
 				transform.Translate(Vector3.back * veloc * Time.deltaTime);
 				if (!gerenciadorAudioPLayer.isPlaying) {
 					gerenciadorAudioPLayer.Play ();
 				}
-			}
-			else 
-			{
+			} else {
 				gerenciadorAudioPLayer.Stop ();
 			}
 	        //GirarCamera
-			if (Input.GetKey("right")) { transform.Rotate(Vector2.up * (veloc * 30) * Time.deltaTime); }
-			else if (Input.GetKey("left")) { transform.Rotate(Vector2.down * (veloc * 30) * Time.deltaTime); }
+			if (Input.GetKey(KeyCode.RightArrow)) {
+				Debug.Log("Clicou seta direita");
+				transform.Rotate(Vector2.up * (veloc * 30) * Time.deltaTime);
+			}
+			else if (Input.GetKey(KeyCode.LeftArrow)) { transform.Rotate(Vector2.down * (veloc * 30) * Time.deltaTime); }
 
             if (Input.GetKey(KeyCode.LeftShift)) veloc = 5;
             else veloc = 3;
