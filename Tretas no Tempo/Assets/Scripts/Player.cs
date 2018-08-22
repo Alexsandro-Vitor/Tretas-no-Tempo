@@ -127,14 +127,8 @@ public class Player : MonoBehaviour {
 			} else {
 				gerenciadorAudioPLayer.Stop ();
 			}
-	        //GirarCamera
-			if (Input.GetKey(KeyCode.RightArrow)) {
-				Debug.Log("Clicou seta direita");
-				transform.Rotate(Vector2.up * (veloc * 30) * Time.deltaTime);
-			}
-			else if (Input.GetKey(KeyCode.LeftArrow)) { transform.Rotate(Vector2.down * (veloc * 30) * Time.deltaTime); }
 
-            if (Input.GetKey(KeyCode.LeftShift)) veloc = 5;
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) veloc = 5;
             else veloc = 3;
 		}
     }
