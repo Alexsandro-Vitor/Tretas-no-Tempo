@@ -17,11 +17,13 @@ public class CameraMove : MonoBehaviour {
 
     void Update() {
 		//GirarCamera
-		if (Input.GetKey(KeyCode.RightArrow)) yaw += speedKeyH * Time.deltaTime;
-		else if (Input.GetKey(KeyCode.LeftArrow)) yaw -= speedKeyH * Time.deltaTime;
-		else yaw += speedMouseH * Input.GetAxis("Mouse X");
-        pitch -= speedMouseV * Input.GetAxis("Mouse Y");
+		if (!PauseMenu.isPaused) {
+			if (Input.GetKey(KeyCode.RightArrow)) yaw += speedKeyH * Time.deltaTime;
+			else if (Input.GetKey(KeyCode.LeftArrow)) yaw -= speedKeyH * Time.deltaTime;
+			else yaw += speedMouseH * Input.GetAxis("Mouse X");
+        	pitch -= speedMouseV * Input.GetAxis("Mouse Y");
 
-        transform.eulerAngles = new Vector3(Mathf.Clamp(pitch, -80f, 80f), yaw, 0.0f);
+        	transform.eulerAngles = new Vector3(Mathf.Clamp(pitch, -80f, 80f), yaw, 0.0f);
+		}
     }
 }

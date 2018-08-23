@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1959996809691132}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 19.48815, y: 4.80436, z: 30.446665}
+  m_LocalPosition: {x: 13.340731, y: 5.016387, z: -36.05782}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4661796066353744}
@@ -125,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5be84723cfcc3542becb06733983c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dinoSom2: {fileID: 0}
 --- !u!135 &135551676579896520
 SphereCollider:
   m_ObjectHideFlags: 1
