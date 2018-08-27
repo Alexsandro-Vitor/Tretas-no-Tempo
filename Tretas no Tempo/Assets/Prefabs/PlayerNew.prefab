@@ -65,8 +65,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4791366029674526}
   - component: {fileID: 20655153394974110}
+  - component: {fileID: 81069411389448666}
   m_Layer: 9
-  m_Name: First Person Camera
+  m_Name: Main Camera (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -819,6 +820,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4966694770955262}
   - component: {fileID: 20209752261117484}
+  - component: {fileID: 81148265713028320}
   - component: {fileID: 114420577271331388}
   m_Layer: 9
   m_Name: CameraMiniMapa
@@ -913,7 +915,7 @@ GameObject:
   - component: {fileID: 20079276698944066}
   - component: {fileID: 81262333891957502}
   m_Layer: 9
-  m_Name: Third Person Camera
+  m_Name: Main Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1635,7 +1637,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1907757455220810}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -8.5, y: 5, z: 28.2}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
@@ -2762,6 +2764,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.60455555, z: 0.6440994}
   m_Center: {x: 0, y: 0.30756798, z: 0.2526451}
+--- !u!81 &81069411389448666
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1066552728713116}
+  m_Enabled: 1
+--- !u!81 &81148265713028320
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1684879795317750}
+  m_Enabled: 1
 --- !u!81 &81262333891957502
 AudioListener:
   m_ObjectHideFlags: 1
@@ -2920,14 +2936,13 @@ MonoBehaviour:
   aux: 0
   contBonus: 0
   DINO_BONUS: 5
-  bulletOrigin: {fileID: 4987765154217950}
+  origin: {fileID: 4987765154217950}
   shootDelay: 0.2
   gerenciadorDeSom: {fileID: 0}
-  tiroSound: {fileID: 8300000, guid: 45931b9431e72e54a892f50a307d8350, type: 3}
-  andandoSound: {fileID: 8300000, guid: f68a67198b297964faebe6070ba4e139, type: 3}
-  bonusSound: {fileID: 8300000, guid: 7a8984910d1857047936c0885fe84876, type: 3}
-  audioMorreu: {fileID: 8300000, guid: 2298d67829ec96744a2fa8b76fca2b05, type: 3}
-  danoSound: {fileID: 8300000, guid: 451d6b7fd7ed3f340bcc2d25006ddaec, type: 3}
+  tiroSound: {fileID: 8300000, guid: 2dd1eb95c78b7f54594037beac02e8fb, type: 3}
+  andandoSound: {fileID: 8300000, guid: 198af4965a9f1d047b9a108d7655c779, type: 3}
+  bonusSound: {fileID: 0}
+  audioMorreu: {fileID: 0}
 --- !u!114 &114923369078530748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2939,9 +2954,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a5fe5c2985ab54ebdd90604031f6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedKeyH: 90
-  speedMouseH: 4
-  speedMouseV: 2
+  speedH: 4
+  speedV: 2
 --- !u!137 &137650450209751724
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

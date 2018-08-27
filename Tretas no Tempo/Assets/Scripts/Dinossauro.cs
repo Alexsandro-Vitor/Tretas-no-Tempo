@@ -45,7 +45,7 @@ public class Dinossauro : MonoBehaviour {
 
         agent = GetComponent<NavMeshAgent>();
 		sangue = GetComponent<ParticleSystem>();
-        if (tRex) { vidas = 50; agent.speed = 3.5f; }
+        if (tRex) { vidas = 50; agent.speed = 3.0f; }
     }
 	
     void Update()
@@ -66,8 +66,12 @@ public class Dinossauro : MonoBehaviour {
 		if(Player.playerG.GetComponent<Player>().vivo && agent.enabled  && Player.playerG!=null)
         {
 			agent.enabled = true;
-            pos = Player.playerG.transform.position;
-            agent.SetDestination(pos);
+
+
+		//	if (agent.Warp (Player.playerG.transform.position) {
+				pos = Player.playerG.transform.position;
+				agent.SetDestination (pos);
+		//	}
         }
         else
         {
@@ -80,7 +84,13 @@ public class Dinossauro : MonoBehaviour {
 		sangue.Play();
         vidas--;
         if (vidas <= 0 && !tRex) { capsule.enabled = false; sphere.enabled = false; agent.enabled = false; anim.SetTrigger("Morreu"); Destroy(gameObject, 1.5f); }
-        else if(vidas <= 0 && tRex) { GetComponent<BoxCollider>().enabled = false; timer.minutos -= 2; agent.enabled = false; anim.SetTrigger("Morreu"); Destroy(gameObject, 1.5f); }
+		else if(vidas <= 0 && tRex) {
+			capsule.enabled = false; 
+			sphere.enabled = false; 
+			timer.minutos -= 2;
+			agent.enabled = false; 
+			anim.SetTrigger("Morreu");
+			Destroy(gameObject, 1.5f); }
         player.contBonus++;
 		contDinos ();
     }

@@ -13,12 +13,12 @@ public class Spawnador : MonoBehaviour {
     
 	public Text contadorDinos;
 
-	static int QUANT_MAX_DINOS = 20;
+	static int QUANT_MAX_DINOS = 15;
 
 	// Use this for initialization
 	void Start ()
     {
-		InvokeRepeating ("SetarDinossauro", 5, 1.5f);
+		InvokeRepeating ("SetarDinossauro", 5, 5.5f);
 	}
 	
 	// Update is called once per frame
