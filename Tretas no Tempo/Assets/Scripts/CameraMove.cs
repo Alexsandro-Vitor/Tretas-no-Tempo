@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour {
     
-    public float speedH = 8.0f;
-    public float speedV = 4.0f;
+	[Tooltip("Velocidade de rotação pelas setas do teclado")] [SerializeField] float speedKeyH = 90f;
+    [Tooltip("Velocidade de rotação horizontal pelo mouse")] [SerializeField] float speedMouseH = 4.0f;
+    [Tooltip("Velocidade de rotação vertical pelo mouse")] [SerializeField] float speedMouseV = 2.0f;
 
     private float yaw = 0.0f;
     private float pitch = 0.0f;
 
-    void Start()
-    {
+    void Start() {
         Cursor.visible = false;
     }
 
-    void Update()
-    {
-        yaw += speedH * Input.GetAxis("Mouse X");
-        pitch -= speedV * Input.GetAxis("Mouse Y");
+    void Update() {
+		//GirarCamera
+		if (!PauseMenu.Paused) {
+			if (Input.GetKey(KeyCode.RightArrow)) yaw += speedKeyH * Time.deltaTime;
+			else if (Input.GetKey(KeyCode.LeftArrow)) yaw -= speedKeyH * Time.deltaTime;
+			else yaw += speedMouseH * Input.GetAxis("Mouse X");
+        	pitch -= speedMouseV * Input.GetAxis("Mouse Y");
 
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+        	transform.eulerAngles = new Vector3(Mathf.Clamp(pitch, -80f, 80f), yaw, 0.0f);
+		}
     }
 }

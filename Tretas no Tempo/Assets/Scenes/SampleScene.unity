@@ -800,8 +800,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a5fe5c2985ab54ebdd90604031f6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedH: 4
-  speedV: 2
+  speedKeyH: 90
+  speedMouseH: 4
+  speedMouseV: 2
 --- !u!65 &286913780
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -861,8 +862,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a5fe5c2985ab54ebdd90604031f6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedH: 4
-  speedV: 2
+  speedKeyH: 90
+  speedMouseH: 4
+  speedMouseV: 2
 --- !u!82 &286913784
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1250,10 +1252,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1807323928286308, guid: f2a93d72d25710d4c8beebcd425911f4, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2a93d72d25710d4c8beebcd425911f4, type: 2}

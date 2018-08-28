@@ -5,39 +5,39 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
-    
-    public static GameObject playerG;
+
+	public static GameObject playerG;
 
 	public Image mira;
 	public Image label;
 
 	public Text info;
-    
-    [SerializeField]
-    float veloc;
 
-    [SerializeField]
-    GerenciadorVida gerenciadorV;
+	[SerializeField]
+	float veloc;
 
-    [SerializeField]
-    GameObject tiro;
+	[SerializeField]
+	GerenciadorVida gerenciadorV;
 
-    Rigidbody rb;
+	[SerializeField]
+	GameObject tiro;
 
-    [SerializeField]
-    CameraMove cameraS;
+	Rigidbody rb;
+
+	[SerializeField]
+	CameraMove cameraS;
 
 	public Timer tempo;
-    [SerializeField]
-    Camera[] cameras;
+	[SerializeField]
+	Camera[] cameras;
 
-    int vidas = 3;
+	int vidas = 3;
 
 	public bool vivo = true;
 
-    bool dano;
+	bool dano;
 
-    Animator anim;
+	Animator anim;
 
 	public Text texto;
 
@@ -45,10 +45,10 @@ public class Player : MonoBehaviour {
 	public int contBonus = 0;
 	public int DINO_BONUS = 5; // A cada 10 dinossauros mortos, aparece um bonus de tempo
 
-    [SerializeField]
-    Transform origin;
+	[SerializeField]
+	Transform origin;
 
-    public float shootDelay = 0.2f;
+	public float shootDelay = 0.2f;
 
 	float lastShoot = 0f;
 
@@ -59,38 +59,38 @@ public class Player : MonoBehaviour {
 	public AudioClip tiroSound,andandoSound,bonusSound,audioMorreu,danoSound;
 	bool correndo;
 
-    void Awake()
-    {
-        playerG = gameObject;
+	void Awake()
+	{
+		playerG = gameObject;
 
-    }
+	}
 
 	// Use this for initialization
 	void Start ()
-    {
+	{
 		gerenciadorAudioPLayer = gameObject.GetComponent<AudioSource> ();
-        aux = Random.Range(DINO_BONUS,DINO_BONUS+5);
-        anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
+		aux = Random.Range(DINO_BONUS,DINO_BONUS+5);
+		anim = GetComponent<Animator>();
+		rb = GetComponent<Rigidbody>();
 	}
-	
+
 	// Update is called once per frame
 	void FixedUpdate ()
-    {
-        Movimento();
-        Anim();
+	{
+		Movimento();
+		Anim();
 	}
 
-    void MudarCamera()
-    {
-        cameras[0].enabled = !cameras[0].enabled; cameras[1].enabled = !cameras[1].enabled;
-        cameraS.enabled = cameras[1];
-    }
+	void MudarCamera()
+	{
+		cameras[0].enabled = !cameras[0].enabled; cameras[1].enabled = !cameras[1].enabled;
+		cameraS.enabled = cameras[1];
+	}
 
-    void Update()
-    {
-        if (Input.GetKeyDown("t")) { MudarCamera(); }
-		if (!PauseMenu.isPaused) {
+	void Update()
+	{
+		if (Input.GetKeyDown("t")) { MudarCamera(); }
+		if (!PauseMenu.Paused) {
 			if (vivo && (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) && Time.time > lastShoot + shootDelay){
 				Instantiate(tiro, origin);
 				gerenciadorDeSom.PlayOneShot (tiroSound);
@@ -101,21 +101,21 @@ public class Player : MonoBehaviour {
 				anim.SetBool("Shoot", false);
 			}
 		}
-    }
+	}
 
 
-    void Anim()
-    {
-        if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0) anim.SetFloat("Veloc", 1);
-        else anim.SetFloat("Veloc", 0);
+	void Anim()
+	{
+		if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0) anim.SetFloat("Veloc", 1);
+		else anim.SetFloat("Veloc", 0);
 
-        if (vidas == 0) anim.SetBool("Morreu", true);
-    }
+		if (vidas == 0) anim.SetBool("Morreu", true);
+	}
 
-    void Movimento()
-    {
+	void Movimento()
+	{
 		if(vivo){
-	        //MovimentaçãoX
+			//MovimentaçãoX
 			if (Input.GetAxis ("Horizontal") > 0) {
 				transform.Translate (Vector2.right * veloc * Time.deltaTime);
 				if (!gerenciadorAudioPLayer.isPlaying) {
@@ -127,14 +127,15 @@ public class Player : MonoBehaviour {
 					gerenciadorAudioPLayer.Play ();
 				}
 			} 
-	        //MovimentaçãoZ
-			else if (Input.GetAxis("Vertical") > 0) { transform.Translate(Vector3.forward * veloc * Time.deltaTime);
+			//MovimentaçãoZ
+			else if (Input.GetAxis("Vertical") > 0) {
+				transform.Translate(Vector3.forward * veloc * Time.deltaTime);
 				if (!gerenciadorAudioPLayer.isPlaying) {
 					gerenciadorAudioPLayer.Play ();
 				}
 			}
 			else if (Input.GetAxis("Vertical") < 0) {
-			
+
 				transform.Translate(Vector3.back * veloc * Time.deltaTime);
 				if (!gerenciadorAudioPLayer.isPlaying) {
 					gerenciadorAudioPLayer.Play ();
@@ -144,26 +145,22 @@ public class Player : MonoBehaviour {
 			{
 				gerenciadorAudioPLayer.Stop ();
 			}
-	        //GirarCamera
-			if (Input.GetKey("right")) { transform.Rotate(Vector2.up * (veloc * 30) * Time.deltaTime); }
-			else if (Input.GetKey("left")) { transform.Rotate(Vector2.down * (veloc * 30) * Time.deltaTime); }
-
-            if (Input.GetKey(KeyCode.LeftShift)) veloc = 5;
-            else veloc = 3;
+			if (Input.GetKey(KeyCode.LeftShift)) veloc = 5;
+			else veloc = 3;
 		}
-    }
+	}
 
-    void AtivarDano() { dano = false; }
+	void AtivarDano() { dano = false; }
 
-    void OnCollisionEnter(Collision colider)
-    {
-        if (colider.gameObject.tag == "Inimigo" && !dano)
-        {
-            dano = true;
-            gerenciadorV.SetarVida(vidas, false);
-            vidas--;
+	void OnCollisionEnter(Collision colider)
+	{
+		if (colider.gameObject.tag == "Inimigo" && !dano)
+		{
+			dano = true;
+			gerenciadorV.SetarVida(vidas, false);
+			vidas--;
 			gerenciadorDeSom.PlayOneShot (danoSound, 1);
-            if (vidas == 0) { 
+			if (vidas == 0) { 
 
 				gerenciadorAudioPLayer.volume = 0.5f;
 				gerenciadorDeSom.priority = 1;
@@ -172,11 +169,11 @@ public class Player : MonoBehaviour {
 
 				Morre();
 			}
-            Invoke("AtivarDano", 2); 
+			Invoke("AtivarDano", 2); 
 			anim.SetTrigger("Atingido");
 		}
-		
-    }
+
+	}
 
 	void OnTriggerEnter(Collider collider){
 		if (collider.gameObject.tag == "Bonus")
