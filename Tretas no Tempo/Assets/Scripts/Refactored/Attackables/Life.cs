@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>Class for managing the character's life</summary>
 [RequireComponent (typeof(Animator))]
@@ -20,6 +21,7 @@ public class Life : MonoBehaviour, IAttackable {
 			return hp > 0;
 		}
 	}
+	public UnityEvent DamageTaken = new UnityEvent();
 
 	private Animator anim;
 
@@ -27,12 +29,21 @@ public class Life : MonoBehaviour, IAttackable {
 		hp = maxHP;
 		anim = GetComponent<Animator>();
 	}
+
+	void Update() {
+		if (Input.GetKeyDown(KeyCode.T)) {
+			TakeDamage(1);
+		}
+	}
 	
 	public void TakeDamage(int damage) {
 		hp -= damage;
-		if (hp < 0) {
+		if (hp <= 0) {
 			hp = 0;
 			anim.SetBool(Constants.AnimParamDead, true);
-		} else anim.SetTrigger(Constants.AnimParamHit);
+		} else {
+			anim.SetTrigger(Constants.AnimParamHit);
+		}
+		DamageTaken.Invoke();
 	}
 }
