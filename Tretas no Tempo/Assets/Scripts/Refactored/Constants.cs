@@ -25,6 +25,9 @@ public class Constants {
 	/// <summary>Axis for controlling lateral walking</summary>
 	public static String AxisSideWalk = "SideWalk";
 
+	/// <summary>Axis for camera changes</summary>
+	public static String AxisChangeCamera = "CameraChange";
+
 	/// <summary>Axis for shooting</summary>
 	public static String AxisFire1 = "Fire1";
 	public static String AxisJump = "Jump";

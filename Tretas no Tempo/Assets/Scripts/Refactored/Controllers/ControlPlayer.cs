@@ -1,28 +1,41 @@
 ﻿using UnityEngine;
 
+[RequireComponent (typeof(AttackShoot))]
+[RequireComponent (typeof(CameraChange))]
 [RequireComponent (typeof(Life))]
 [RequireComponent (typeof(Movement))]
-[RequireComponent (typeof(AttackShoot))]
 /// <summary>Class for controlling the player</summary>
 public class ControlPlayer : MonoBehaviour {
-	[Tooltip("Velocidade de rotação pelas setas do teclado")] [SerializeField] float speedKeyH = 90f;
-    [Tooltip("Velocidade de rotação horizontal pelo mouse")] [SerializeField] float speedMouseH = 4.0f;
-    [Tooltip("Velocidade de rotação vertical pelo mouse")] [SerializeField] float speedMouseV = 2.0f;
+	[Tooltip("Velocidade de rotação pelas setas do teclado")][SerializeField] float speedKeyH = 90f;
+    [Tooltip("Velocidade de rotação horizontal pelo mouse")][SerializeField] float speedMouseH = 4.0f;
+    [Tooltip("Velocidade de rotação vertical pelo mouse")][SerializeField] float speedMouseV = 2.0f;
 
 	private AttackShoot attackShoot;
-	private Movement movement;
+	private CameraChange cameras;
 	private Life life;
+	private Movement movement;
+
+	private bool changedCamera = false;
 
 	void Start () {
+		attackShoot = GetComponent<AttackShoot>();
+		cameras = GetComponent<CameraChange>();
 		life = GetComponent<Life>();
 		movement = GetComponent<Movement>();
-		attackShoot = GetComponent<AttackShoot>();
 	}
 
 	void Update () {
 		if (life.Alive && !PauseMenu.Paused) {
 			// Shooting
 			if (Input.GetAxisRaw(Constants.AxisFire1) > 0f) attackShoot.Shoot();
+
+			// Change Cameras
+			if (Input.GetAxisRaw(Constants.AxisChangeCamera) > 0f) {
+				if (!changedCamera) {
+					cameras.ChangeCamera();
+					changedCamera = true;
+				}
+			} else changedCamera = false;
 
 			//Walking
 			movement.Move(

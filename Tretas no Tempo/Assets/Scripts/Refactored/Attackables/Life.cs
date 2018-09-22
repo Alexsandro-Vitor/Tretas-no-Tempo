@@ -31,7 +31,7 @@ public class Life : MonoBehaviour, IAttackable {
 	}
 
 	void Update() {
-		if (Input.GetKeyDown(KeyCode.T)) {
+		if (Input.GetKeyDown(KeyCode.X)) {
 			TakeDamage(1);
 		}
 	}
